@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiooex Software Company</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* Keep header above overlay */
+body header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Bold by default */
+body header h1,
+body header nav a {
+  font-weight: 700;
+}
+
+body header nav a {
+  position: relative;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 1.1rem;
+  padding-bottom: 5px;
+  transition: color 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+/* Underline animation */
+body header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background-color: #ff9800;
+  transition: width 0.8s ease-in-out;
+}
+
+/* Hover effect */
+body header nav a:hover {
+  color: #ff9800 !important;
+  transform: translateY(5px) scale(1.1);
+}
+
+body header nav a:hover::after {
+  width: 100%;
+}
+
+
+/* Company name (white by default) */
+body header h1 {
+  color: #fff;
+  transition: 
+    color 0.6s ease, 
+    transform 0.5s ease,
+    margin-left 0.5s ease; /* smooth move */
+}
+
+body header h1:hover {
+  color: #ff9800;
+  transform: translateY(5px) scale(1.2);
+  margin-left: 50px;
+}
+
+
+        /* ==== HEADER STYLING ==== */
+        body header {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364) !important;
+            padding: 18px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        /* Company Name */
+        body header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        /* Navigation */
+        body header nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        body header nav a {
+            color: #ffffff;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1.05rem;
+            position: relative;
+            transition: color 0.3s ease, padding-bottom 0.3s ease;
+            padding: 6px 0;
+        }
+
+        body header nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #ffb400;
+            transition: width 0.3s ease;
+        }
+
+        body header nav a:hover {
+            color: #ffb400;
+            padding-bottom: 4px;
+        }
+
+        body header nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 20px;
+            }
+
+            body header nav {
+                flex-wrap: wrap;
+                gap: 20px;
+                margin-top: 10px;
+            }
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.55);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .carousel-caption h2 {
+            font-size: 2.2rem;
+        }
+
+        .carousel-caption p {
+            font-size: 1.1rem;
+        }
+
+        #back-btn {
+            display: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .scroll-section {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 10px;
+        }
+
+        .card-custom {
+            min-width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+
+        .card-custom img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        header,
+        footer {
+            background: #222;
+            color: #fff;
+        }
+
+        header {
+            padding: 20px 0;
+        }
+
+        footer {
+            padding: 50px 0;
+            position: relative;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        }
+
+        header a,
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-card img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .footer-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h5 {
+            font-weight: bold;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .footer-section h5::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #ff9800;
+            border-radius: 2px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #ff9800;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff9800, #ff5722, #e91e63);
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* --- Added minimal styles for Services toggle --- */
+        .service-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            font-size: 24px;
+            background: linear-gradient(135deg, #0d6efd, #ff9800);
+            box-shadow: 0 6px 16px rgba(13, 110, 253, .25);
+        }
+
+        .view-all-wrap {
+            text-align: right;
+            margin-top: 8px;
+        }
+
+        .view-all-btn {
+            background: none;
+            border: none;
+            color: #0d6efd;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #services-grid {
+            display: none;
+        }
+
+        .service-grid-card {
+            height: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1537432376769-00a0b39c4a4f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364) !important;
+        }
+
+
+        .hero-text h1 {
+            line-height: 1.2;
+        }
+
+        .hero-img {
+            max-height: 450px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .btn-lg {
+            padding: 12px 28px;
+            font-size: 1.1rem;
+        }
+
+        /* Smooth Fade-Up Animations */
+        .animate-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+       #orbitCanvas { display: block; margin: auto; background: transparent; }
+    </style>
+</head>
+
+<body>
+    <header class="text-center">
+        <h1>Tiooex</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#products">Products</a>
+            <a href="#blog">Blog</a>
+            <a href="#teams">Teams</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row align-items-center">
+
+                <!-- Text Content -->
+                <div class="col-lg-6 text-white hero-text">
+                    <h1 class="display-4 fw-bold mb-3 animate-fade-up">
+                        Building Scalable Software for a Global Future
+                    </h1>
+                    <p class="lead mb-4 animate-fade-up delay-1">
+                        We craft innovative solutions that empower businesses worldwide, with speed, security, and
+                        scalability at the core.
+                    </p>
+                    <div class="animate-fade-up delay-2">
+                        <a href="#services" class="btn btn-warning btn-lg me-2">Get Started</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- Illustration -->
+                 <div class="col-lg-6 text-center animate-fade-up delay-3">
+                    <canvas id="orbitCanvas" width="300" height="300"></canvas>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Services (ADDED) -->
+    <section id="services" class="container my-5">
+        <h2 class="mb-2">Services</h2>
+        <p class="text-muted mb-3">End-to-end capabilities to ship reliable, secure and scalable products.</p>
+
+        <!-- Scroll view -->
+        <div id="services-scroll" class="scroll-section">
+            <div class="card-custom service-card">
+                <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+                <div>
+                    <h5 class="mb-1">Web Development</h5><small>Responsive websites & portals</small>
+                </div>
+            </div>
+            <div class="card-custom service-card">
+                <div class="service-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                <div>
+                    <h5 class="mb-1">App Development</h5><small>iOS / Android / Cross-platform</small>
+                </div>
+            </div>
+            <div class="card-custom service-card">
+                <div class="service-icon"><i class="fa-solid fa-cloud"></i></div>
+                <div>
+                    <h5 class="mb-1">Cloud Solutions</h5><small>AWS, Azure, GCP, DevOps</small>
+                </div>
+            </div>
+            <div class="card-custom service-card">
+                <div class="service-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                <div>
+                    <h5 class="mb-1">Digital Marketing</h5><small>SEO, PPC & growth</small>
+                </div>
+            </div>
+            <div class="card-custom service-card">
+                <div class="service-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                <div>
+                    <h5 class="mb-1">UI/UX Design</h5><small>Research & design systems</small>
+                </div>
+            </div>
+            <div class="card-custom service-card">
+                <div class="service-icon"><i class="fa-solid fa-robot"></i></div>
+                <div>
+                    <h5 class="mb-1">AI Solutions</h5><small>Chatbots & automation</small>
+                </div>
+            </div>
+            <div class="card-custom service-card">
+                <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div>
+                    <h5 class="mb-1">Cybersecurity</h5><small>Audits & compliance</small>
+                </div>
+            </div>
+            <div class="card-custom service-card">
+                <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+                <div>
+                    <h5 class="mb-1">DevOps</h5><small>CI/CD & observability</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-all-wrap">
+            <button id="view-all-btn" class="view-all-btn">+</button>
+        </div>
+        <div class="view-all-wrap mt-2">
+            <button id="back-btn" class="view-all-btn">-</button>
+        </div>
+
+        <!-- Grid view (hidden initially) -->
+        <div id="services-grid" class="row g-3 mt-2">
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-custom service-grid-card d-flex align-items-center p-3">
+                    <div class="service-icon me-3"><i class="fa-solid fa-code"></i></div>
+                    <div>
+                        <h6 class="mb-1">Web Development</h6><small>Responsive websites & portals</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-custom service-grid-card d-flex align-items-center p-3">
+                    <div class="service-icon me-3"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div>
+                        <h6 class="mb-1">App Development</h6><small>iOS / Android / Cross-platform</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-custom service-grid-card d-flex align-items-center p-3">
+                    <div class="service-icon me-3"><i class="fa-solid fa-cloud"></i></div>
+                    <div>
+                        <h6 class="mb-1">Cloud Solutions</h6><small>AWS, Azure, GCP, DevOps</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-custom service-grid-card d-flex align-items-center p-3">
+                    <div class="service-icon me-3"><i class="fa-solid fa-bullhorn"></i></div>
+                    <div>
+                        <h6 class="mb-1">Digital Marketing</h6><small>SEO, PPC & growth</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-custom service-grid-card d-flex align-items-center p-3">
+                    <div class="service-icon me-3"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <div>
+                        <h6 class="mb-1">UI/UX Design</h6><small>Research & design systems</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-custom service-grid-card d-flex align-items-center p-3">
+                    <div class="service-icon me-3"><i class="fa-solid fa-robot"></i></div>
+                    <div>
+                        <h6 class="mb-1">AI Solutions</h6><small>Chatbots & automation</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-custom service-grid-card d-flex align-items-center p-3">
+                    <div class="service-icon me-3"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div>
+                        <h6 class="mb-1">Cybersecurity</h6><small>Audits & compliance</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-custom service-grid-card d-flex align-items-center p-3">
+                    <div class="service-icon me-3"><i class="fa-solid fa-gears"></i></div>
+                    <div>
+                        <h6 class="mb-1">DevOps</h6><small>CI/CD & observability</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="card-custom service-grid-card d-flex align-items-center p-3">
+                    <div class="service-icon me-3"><i class="fa-solid fa-network-wired"></i></div>
+                    <div>
+                        <h6 class="mb-1">Networking</h6><small>Architecture & security</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="container my-5">
+        <h2 class="mb-4">Our Products</h2>
+        <div class="scroll-section">
+            <div class="card-custom">
+                <img src="https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                    alt="Bring Commerce">
+                <h5 class="mt-3">Bring Commerce</h5>
+                <p>E-commerce platform for online shopping.</p>
+            </div>
+            <div class="card-custom">
+                <img src="https://images.pexels.com/photos/3943746/pexels-photo-3943746.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                    alt="POS for Billing">
+                <h5 class="mt-3">POS for Billing</h5>
+                <p>Smart point of sale system for your business.</p>
+            </div>
+            <div class="card-custom">
+                <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                    alt="Hotel Booking System">
+                <h5 class="mt-3">Hotel Booking System</h5>
+                <p>Manage reservations for luxury hotels easily.</p>
+            </div>
+            <div class="card-custom">
+                <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                    alt="Rental System">
+                <h5 class="mt-3">Rental System</h5>
+                <p>Efficient rental management for various industries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="teams" class="container my-5">
+        <h2 class="mb-4 text-center">Our Team</h2>
+        <div class="scroll-section">
+            <div class="card-custom team-card">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member">
+                <h5 class="mt-3">Sarah Johnson</h5>
+                <p>CEO</p>
+            </div>
+            <div class="card-custom team-card">
+                <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Team Member">
+                <h5 class="mt-3">John Smith</h5>
+                <p>CTO</p>
+            </div>
+            <div class="card-custom team-card">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member">
+                <h5 class="mt-3">Emma Davis</h5>
+                <p>Lead Designer</p>
+            </div>
+            <div class="card-custom team-card">
+                <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Team Member">
+                <h5 class="mt-3">Michael Brown</h5>
+                <p>Lead Developer</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-section">
+            <div>
+                <h5>About Us</h5>
+                <p>We are a leading software solutions company delivering high-quality digital products across
+                    industries with innovation and passion.</p>
+            </div>
+            <div>
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#teams">Teams</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Contact</h5>
+                <p>Email: info@tiooex.com</p>
+                <p>Phone: +123 456 7890</p>
+            </div>
+            <div>
+                <h5>Follow Us</h5>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <small>&copy; 2025 Tiooex. All rights reserved.</small>
+        </div>
+    </footer>
+
+    <!-- Tiny JS for Services toggle -->
+    <script>
+        const viewAllBtn = document.getElementById('view-all-btn');
+        const backBtn = document.getElementById('back-btn');
+        const servicesScroll = document.getElementById('services-scroll');
+        const servicesGrid = document.getElementById('services-grid');
+
+        if (viewAllBtn) {
+            viewAllBtn.addEventListener('click', () => {
+                viewAllBtn.style.display = 'none'; // hide View All
+                backBtn.style.display = 'inline-block'; // show Back
+                servicesScroll.style.display = 'none';
+                servicesGrid.style.display = 'flex';
+                servicesGrid.style.flexWrap = 'wrap';
+            });
+        }
+
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                backBtn.style.display = 'none'; // hide Back
+                viewAllBtn.style.display = 'inline-block'; // show View All
+                servicesGrid.style.display = 'none';
+                servicesScroll.style.display = 'flex';
+            });
+        }
+    </script>
+   <script>
+    const canvas = document.getElementById('orbitCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const sun = { radius: 20, color: 'yellow' };
+    const planets = [
+        { orbitRadius: 50, size: 4, speed: 0.02, angle: 0, color: 'gray' }, // Mercury
+        { orbitRadius: 70, size: 6, speed: 0.018, angle: 0, color: 'orange' }, // Venus
+        { orbitRadius: 90, size: 7, speed: 0.016, angle: 0, color: 'blue' }, // Earth
+        { orbitRadius: 110, size: 5, speed: 0.014, angle: 0, color: 'red' }, // Mars
+        { orbitRadius: 130, size: 12, speed: 0.012, angle: 0, color: 'brown' }, // Jupiter
+        { orbitRadius: 160, size: 10, speed: 0.01, angle: 0, color: 'gold', rings: true }, // Saturn with rings
+        { orbitRadius: 190, size: 8, speed: 0.008, angle: 0, color: 'lightblue' }, // Uranus
+        { orbitRadius: 220, size: 8, speed: 0.006, angle: 0, color: 'darkblue' }, // Neptune
+        { orbitRadius: 250, size: 3, speed: 0.004, angle: 0, color: 'lightgray' } // Pluto
+    ];
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+
+        // Draw Sun
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, sun.radius, 0, Math.PI * 2);
+        ctx.fillStyle = sun.color;
+        ctx.fill();
+
+        // Draw planets
+        planets.forEach(planet => {
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, planet.orbitRadius, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+            ctx.stroke();
+
+            const x = centerX + planet.orbitRadius * Math.cos(planet.angle);
+            const y = centerY + planet.orbitRadius * Math.sin(planet.angle);
+
+            ctx.beginPath();
+            ctx.arc(x, y, planet.size, 0, Math.PI * 2);
+            ctx.fillStyle = planet.color;
+            ctx.fill();
+
+            // Draw Saturn's rings
+            if (planet.rings) {
+                ctx.beginPath();
+                ctx.ellipse(x, y, planet.size + 6, planet.size + 2, 0, 0, Math.PI * 2);
+                ctx.strokeStyle = 'rgba(200,200,150,0.7)';
+                ctx.stroke();
+            }
+
+            planet.angle += planet.speed;
+        });
+
+        requestAnimationFrame(draw);
+    }
+
+    draw();
+</script>
+
+</body>
+
+</html>
