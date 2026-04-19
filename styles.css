@@ -849,6 +849,12 @@ button{cursor:pointer;font-family:inherit}
     padding:14px 28px;
     white-space:nowrap;
 }
+.cta-buttons{
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
 .cta-links{
     display:flex;
     justify-content:center;
@@ -981,10 +987,12 @@ button{cursor:pointer;font-family:inherit}
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:16px;
 }
 .footer-bottom p{
     color:rgba(255,255,255,0.2);
     font-size:11px;
+    white-space:nowrap;
 }
 
 /* ── Reveal Animation ── */
@@ -1463,5 +1471,5 @@ button{cursor:pointer;font-family:inherit}
     .newsletter-form input{width:100%;border-right:1px solid rgba(255,255,255,0.12);border-radius:6px}
     .newsletter-form button{border-radius:6px}
     .footer-wrap{grid-template-columns:1fr;gap:32px}
-    .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+    .footer-bottom{gap:12px;font-size:10px}
 }
