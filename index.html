@@ -3,963 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiooex - Enterprise Software Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .gradient-premium {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-        }
-
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-        }
-
-        .card-hover:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px rgba(6, 182, 212, 0.15);
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(6, 182, 212, 0.35);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .service-card:hover {
-            border-color: rgba(6, 182, 212, 0.8);
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.35);
-        }
-
-        .icon-gradient {
-            background: linear-gradient(135deg, #06b6d4 0%, #22c55e 100%);
-        }
-
-        .icon-gradient-2 {
-            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-        }
-
-        .icon-gradient-3 {
-            background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-        }
-
-        .icon-gradient-4 {
-            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-        }
-
-        .fade-in {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
-        .stagger-6 { animation-delay: 0.6s; }
-
-        .blob {
-            position: absolute;
-            background: linear-gradient(135deg, #06b6d4 0%, #22c55e 100%);
-            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-            opacity: 0.1;
-            animation: blob 7s infinite;
-        }
-
-        @keyframes blob {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        .testimonial-card {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
-            border: 2px solid rgba(6, 182, 212, 0.3);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .pricing-card {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
-            border: 2px solid rgba(6, 182, 212, 0.3);
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .pricing-card.featured {
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(34, 197, 94, 0.15) 100%);
-            border-color: rgba(6, 182, 212, 0.7);
-            transform: scale(1.05);
-            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.35);
-        }
-
-        .pricing-card:hover {
-            border-color: rgba(6, 182, 212, 0.8);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.3);
-        }
-
-        .feature-item {
-            display: flex;
-            gap: 16px;
-            opacity: 0;
-            animation: slideIn 0.6s ease-out forwards;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .navbar-scroll {
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        .glow-text {
-            background: linear-gradient(135deg, #06b6d4 0%, #22c55e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card-description {
-            color: #e2e8f0;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
-        .card-title {
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .mobile-menu {
-            transition: all 0.3s ease-in-out;
-            max-height: 500px;
-            overflow: hidden;
-        }
-
-        .mobile-menu.hidden {
-            max-height: 0;
-            overflow: hidden;
-        }
-
-        @media (max-width: 1024px) {
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-        }
-    </style>
+    <title>Tiooex — Reliable High-Performance Technology for Business</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
-<body class="bg-slate-950 text-white overflow-x-hidden">
+<body class="page-home">
+
+    <!-- Promo banner (like Starlink top bar) -->
+    <div class="promo-bar">
+        Enterprise consulting services now available across all sectors — <a href="products.html">Explore capabilities</a>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16 sm:h-20">
-                <div class="flex items-center gap-2 sm:gap-3">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-cyan-400 to-green-400 flex items-center justify-center font-bold text-lg sm:text-xl text-slate-900">
-                        T
-                    </div>
-                    <span class="text-xl sm:text-2xl font-bold glow-text">Tiooex</span>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center gap-6 xl:gap-8">
-                    <a href="#services" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium text-sm xl:text-base">Services</a>
-                    <a href="#features" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium text-sm xl:text-base">Features</a>
-                    <a href="#pricing" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium text-sm xl:text-base">Pricing</a>
-                    <a href="#testimonials" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium text-sm xl:text-base">Testimonials</a>
-                    <a href="https://www.tiooex.in/internship" class="text-slate-300 hover:text-cyan-400 transition-colors font-medium text-sm xl:text-base">Internship</a>
-                    <button onclick="window.location.href='mailto:pawan@tiooex.in?subject=I%20want%20to%20get%20started%20with%20Tiooex'" class="px-6 py-2 xl:px-8 xl:py-3 bg-gradient-to-r from-cyan-500 to-green-500 rounded-lg font-bold text-sm xl:text-base text-slate-900 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all hover:scale-105">
-                        Get Started
-                    </button>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="lg:hidden w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+    <nav class="site-nav" id="site-nav">
+        <div class="nav-wrap">
+            <a href="index.html" class="brand">Tiooex</a>
+            <div class="nav-links">
+                <a href="products.html">Capabilities</a>
+                <a href="services.html">Industries</a>
+                <a href="blogs.html">Insights</a>
+                <a href="#contact" class="btn-nav">Contact</a>
             </div>
-
-            <!-- Mobile Menu -->
-            <div class="mobile-menu hidden lg:hidden bg-slate-900/95 backdrop-blur-xl border-t border-slate-700" id="mobile-menu">
-                <div class="px-4 py-4 space-y-3">
-                    <a href="#services" class="block text-slate-300 hover:text-cyan-400 transition-colors font-medium py-2">Services</a>
-                    <a href="#features" class="block text-slate-300 hover:text-cyan-400 transition-colors font-medium py-2">Features</a>
-                    <a href="#pricing" class="block text-slate-300 hover:text-cyan-400 transition-colors font-medium py-2">Pricing</a>
-                    <a href="#testimonials" class="block text-slate-300 hover:text-cyan-400 transition-colors font-medium py-2">Testimonials</a>
-                    <a href="https://www.tiooex.in/internship" class="block text-slate-300 hover:text-cyan-400 transition-colors font-medium py-2">Internship</a>
-                    <button onclick="window.location.href='mailto:pawan@tiooex.in?subject=I%20want%20to%20get%20started%20with%20Tiooex'" class="w-full px-6 py-2 bg-gradient-to-r from-cyan-500 to-green-500 rounded-lg font-bold text-slate-900 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all mt-2">
-                        Get Started
-                    </button>
-                </div>
+            <button class="mobile-toggle" id="mobile-toggle">&#9776;</button>
+        </div>
+        <div style="max-width:1200px;margin:0 auto;padding:0 24px">
+            <div class="mobile-panel" id="mobile-panel">
+                <a href="products.html">Capabilities</a>
+                <a href="services.html">Industries</a>
+                <a href="blogs.html">Insights</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="gradient-premium relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24">
-        <!-- Animated Blobs -->
-        <div class="blob w-48 h-48 sm:w-96 sm:h-96" style="top: 10%; left: 5%;"></div>
-        <div class="blob w-40 h-40 sm:w-80 sm:h-80" style="top: 40%; right: 5%; animation-delay: 2s;"></div>
-        <div class="blob w-36 h-36 sm:w-72 sm:h-72" style="bottom: 10%; left: 20%; animation-delay: 4s;"></div>
+    <!-- ═══ HERO (full-screen, centered like Starlink) ═══ -->
+    <section class="hero-full">
+        <div class="hero-bg"></div>
+        <div class="hero-content reveal">
+            <p class="hero-eyebrow">High-performance enterprise technology</p>
+            <h1 class="hero-title">Reliable<br>Technology<br>For Business</h1>
+            <p class="hero-sub">Transform operations and accelerate growth across every industry</p>
+            <a href="products.html" class="hero-link">See capabilities in your sector ›</a>
+            <br>
+            <a href="#contact" class="hero-cta">▶ Learn more</a>
+        </div>
 
-        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                <!-- Left Content -->
-                <div class="fade-in">
-                    <div class="inline-block mb-6 px-4 sm:px-5 py-2 bg-cyan-500/15 border border-cyan-400/40 rounded-full">
-                        <span class="text-xs sm:text-sm font-semibold text-cyan-300">✨ Enterprise Solutions Leader</span>
-                    </div>
-
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
-                        Transform Your
-                        <span class="glow-text block mt-2">Business Future</span>
-                    </h1>
-
-                    <p class="text-base sm:text-lg md:text-xl text-slate-300 mb-8 sm:mb-10 leading-relaxed max-w-xl">
-                        Comprehensive enterprise software solutions designed to revolutionize operations, boost productivity, and accelerate digital transformation across all industries.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12">
-                        <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-green-500 rounded-xl font-bold text-sm sm:text-lg text-slate-900 hover:shadow-2xl hover:shadow-cyan-500/50 transition-all hover:scale-105">
-                            Explore Solutions
-                        </button>
-                        <button onclick="window.location.href='mailto:pawan@tiooex.in?subject=Schedule%20Demo%20-%20Tiooex'" class="px-6 sm:px-8 py-3 sm:py-4 border-2 border-cyan-400/50 text-cyan-300 rounded-xl font-bold text-sm sm:text-lg hover:bg-cyan-400/10 transition-all">
-                            Schedule Demo →
-                        </button>
-                    </div>
-
-                    <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-8 border-t border-slate-700/50">
-                        <div>
-                            <p class="text-2xl sm:text-4xl font-bold glow-text">18+</p>
-                            <p class="text-slate-400 text-xs sm:text-sm mt-1 sm:mt-2">Solutions</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl sm:text-4xl font-bold glow-text">500+</p>
-                            <p class="text-slate-400 text-xs sm:text-sm mt-1 sm:mt-2">Happy Clients</p>
-                        </div>
-                        <div>
-                            <p class="text-2xl sm:text-4xl font-bold glow-text">99.9%</p>
-                            <p class="text-slate-400 text-xs sm:text-sm mt-1 sm:mt-2">Uptime SLA</p>
-                        </div>
-                    </div>
+        <!-- Plan cards at bottom of hero -->
+        <div class="plan-strip reveal">
+            <div class="plan-card">
+                <p class="plan-label">Capabilities</p>
+                <h3>Transform your operations</h3>
+                <p>Cloud, AI, cybersecurity, customer experience, and technology transformation</p>
+                <div class="plan-actions">
+                    <a href="products.html" class="btn btn-primary">Get started</a>
+                    <a href="products.html" class="btn btn-secondary">Learn more</a>
                 </div>
-
-                <!-- Right Visual -->
-                <div class="fade-in stagger-2 hidden lg:block">
-                    <div class="relative w-full h-full">
-                        <!-- Card Stack -->
-                        <div class="absolute top-0 left-0 w-full h-80 xl:h-96 bg-gradient-to-br from-cyan-500/20 to-green-500/10 rounded-2xl border border-cyan-400/30 backdrop-blur-xl p-6 xl:p-8 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-                            <div class="h-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-4 xl:p-6">
-                                <div class="flex gap-3 mb-4">
-                                    <div class="w-3 h-3 rounded-full bg-cyan-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-blue-400"></div>
-                                </div>
-                                <p class="text-xs xl:text-sm text-slate-400">Enterprise CRM</p>
-                                <p class="text-lg xl:text-2xl font-bold mt-2">Sales Pipeline</p>
-                            </div>
-                        </div>
-                        <div class="absolute top-24 xl:top-32 right-0 w-full h-80 xl:h-96 bg-gradient-to-br from-green-500/20 to-blue-500/10 rounded-2xl border border-green-400/30 backdrop-blur-xl p-6 xl:p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-                            <div class="h-full bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-4 xl:p-6">
-                                <div class="flex gap-3 mb-4">
-                                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-blue-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-purple-400"></div>
-                                </div>
-                                <p class="text-xs xl:text-sm text-slate-400">ERP System</p>
-                                <p class="text-lg xl:text-2xl font-bold mt-2">Inventory Control</p>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="plan-card">
+                <p class="plan-label">Industries</p>
+                <h3>Solutions for key sectors</h3>
+                <p>Automotive, banking, capital markets, insurance, retail, and more</p>
+                <div class="plan-actions">
+                    <a href="services.html" class="btn btn-primary">Get started</a>
+                    <a href="services.html" class="btn btn-secondary">Learn more</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-12 sm:mb-20">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-                    Our <span class="glow-text">Complete Suite</span>
-                </h2>
-                <p class="text-base sm:text-lg lg:text-xl text-slate-400 max-w-2xl mx-auto px-4">
-                    18+ comprehensive enterprise solutions designed for modern businesses
-                </p>
-            </div>
+    <!-- ═══ Availability Banner ═══ -->
+    <div class="avail-banner">
+        <p class="avail-label">Available across all industries and markets</p>
+        <h2>Enterprise technology where you need it, when you need it</h2>
+        <a href="products.html" class="avail-link">Explore capabilities and plans ›</a>
+    </div>
 
-            <!-- Featured Services Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-                <!-- Card 1 -->
-                <div class="service-card rounded-2xl p-6 sm:p-8 card-hover fade-in stagger-1">
-                    <div class="icon-gradient w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-xl sm:text-2xl">
-                        ⚡
-                    </div>
-                    <h3 class="card-title text-xl sm:text-2xl font-bold mb-4">AI Software</h3>
-                    <p class="card-description mb-6 leading-relaxed text-sm sm:text-base">
-                        Intelligent automation and machine learning solutions for business optimization and predictive analytics.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-300 hover:text-cyan-100 transition-colors font-semibold text-sm sm:text-base">
-                        Learn More →
-                    </a>
+    <!-- ═══ Section 1: Reliable & Resilient ═══ -->
+    <section class="fs-section bg-darker">
+        <div class="fs-inner">
+            <div class="fs-split">
+                <div class="fs-text reveal">
+                    <p class="fs-eyebrow">Reliable &amp; Resilient</p>
+                    <h2 class="fs-title">Built to support business under pressure</h2>
+                    <p class="fs-desc">Tiooex provides high-performance enterprise technology with reliable delivery, modern infrastructure, and proven resilience. Designed to withstand market volatility, regulatory shifts, and operational complexity.</p>
+                    <a href="products.html" class="fs-link">Learn more ›</a>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="service-card rounded-2xl p-6 sm:p-8 card-hover fade-in stagger-2">
-                    <div class="icon-gradient-2 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-xl sm:text-2xl">
-                        👥
-                    </div>
-                    <h3 class="card-title text-xl sm:text-2xl font-bold mb-4">CRM System</h3>
-                    <p class="card-description mb-6 leading-relaxed text-sm sm:text-base">
-                        Customer management, lead tracking, and sales pipeline automation for revenue growth.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-300 hover:text-cyan-100 transition-colors font-semibold text-sm sm:text-base">
-                        Learn More →
-                    </a>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="service-card rounded-2xl p-6 sm:p-8 card-hover fade-in stagger-3">
-                    <div class="icon-gradient-3 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-xl sm:text-2xl">
-                        📊
-                    </div>
-                    <h3 class="card-title text-xl sm:text-2xl font-bold mb-4">ERP Solutions</h3>
-                    <p class="card-description mb-6 leading-relaxed text-sm sm:text-base">
-                        Enterprise resource planning for complete business integration and operational efficiency.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-300 hover:text-cyan-100 transition-colors font-semibold text-sm sm:text-base">
-                        Learn More →
-                    </a>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="service-card rounded-2xl p-6 sm:p-8 card-hover fade-in stagger-4">
-                    <div class="icon-gradient-4 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-xl sm:text-2xl">
-                        🛒
-                    </div>
-                    <h3 class="card-title text-xl sm:text-2xl font-bold mb-4">E-Commerce Platform</h3>
-                    <p class="card-description mb-6 leading-relaxed text-sm sm:text-base">
-                        Complete online retail solution with payment integration and inventory management.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-300 hover:text-cyan-100 transition-colors font-semibold text-sm sm:text-base">
-                        Learn More →
-                    </a>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="service-card rounded-2xl p-6 sm:p-8 card-hover fade-in stagger-5">
-                    <div class="icon-gradient w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-xl sm:text-2xl">
-                        🅿️
-                    </div>
-                    <h3 class="card-title text-xl sm:text-2xl font-bold mb-4">Parking Management</h3>
-                    <p class="card-description mb-6 leading-relaxed text-sm sm:text-base">
-                        Smart parking system with real-time occupancy tracking and reservation management.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-300 hover:text-cyan-100 transition-colors font-semibold text-sm sm:text-base">
-                        Learn More →
-                    </a>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="service-card rounded-2xl p-6 sm:p-8 card-hover fade-in stagger-6">
-                    <div class="icon-gradient-2 w-14 h-14 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-xl sm:text-2xl">
-                        ☁️
-                    </div>
-                    <h3 class="card-title text-xl sm:text-2xl font-bold mb-4">DevOps Solutions</h3>
-                    <p class="card-description mb-6 leading-relaxed text-sm sm:text-base">
-                        Infrastructure automation, CI/CD pipelines, and cloud deployment for scalability.
-                    </p>
-                    <a href="#" class="inline-flex items-center text-cyan-300 hover:text-cyan-100 transition-colors font-semibold text-sm sm:text-base">
-                        Learn More →
-                    </a>
-                </div>
-            </div>
-
-            <!-- View All Button -->
-            <div class="text-center">
-                <button class="px-8 sm:px-10 py-3 sm:py-4 border-2 border-cyan-400/50 text-cyan-300 rounded-xl font-bold text-sm sm:text-lg hover:bg-cyan-400/10 transition-all">
-                    View All 18+ Solutions
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Additional Services Grid -->
-    <section class="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
-        <div class="max-w-7xl mx-auto">
-            <h3 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-10">More Solutions</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <!-- HR & Payroll -->
-                <div class="service-card rounded-xl p-4 sm:p-6 card-hover">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-rose-400 to-pink-400 rounded-lg flex items-center justify-center mb-4 text-lg">👔</div>
-                    <h4 class="card-title font-bold text-base sm:text-lg mb-2">HR & Payroll</h4>
-                    <p class="card-description text-xs sm:text-sm">Human resource and payroll management</p>
-                </div>
-
-                <!-- Project Management -->
-                <div class="service-card rounded-xl p-4 sm:p-6 card-hover">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-amber-400 to-orange-400 rounded-lg flex items-center justify-center mb-4 text-lg">📋</div>
-                    <h4 class="card-title font-bold text-base sm:text-lg mb-2">Project Mgmt</h4>
-                    <p class="card-description text-xs sm:text-sm">Agile planning and team collaboration</p>
-                </div>
-
-                <!-- Helpdesk -->
-                <div class="service-card rounded-xl p-4 sm:p-6 card-hover">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-lg flex items-center justify-center mb-4 text-lg">🎧</div>
-                    <h4 class="card-title font-bold text-base sm:text-lg mb-2">Helpdesk System</h4>
-                    <p class="card-description text-xs sm:text-sm">Customer support and ticket management</p>
-                </div>
-
-                <!-- Inventory & POS -->
-                <div class="service-card rounded-xl p-4 sm:p-6 card-hover">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-cyan-400 to-teal-400 rounded-lg flex items-center justify-center mb-4 text-lg">📦</div>
-                    <h4 class="card-title font-bold text-base sm:text-lg mb-2">Inventory & POS</h4>
-                    <p class="card-description text-xs sm:text-sm">Point of sale and inventory control</p>
-                </div>
-
-                <!-- Appointment Booking -->
-                <div class="service-card rounded-xl p-4 sm:p-6 card-hover">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-violet-400 to-purple-400 rounded-lg flex items-center justify-center mb-4 text-lg">📅</div>
-                    <h4 class="card-title font-bold text-base sm:text-lg mb-2">Appointment Booking</h4>
-                    <p class="card-description text-xs sm:text-sm">Reservation and scheduling system</p>
-                </div>
-
-                <!-- Invoice & Billing -->
-                <div class="service-card rounded-xl p-4 sm:p-6 card-hover">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-green-400 to-emerald-400 rounded-lg flex items-center justify-center mb-4 text-lg">📄</div>
-                    <h4 class="card-title font-bold text-base sm:text-lg mb-2">Invoice & Billing</h4>
-                    <p class="card-description text-xs sm:text-sm">Automated invoicing and payments</p>
-                </div>
-
-                <!-- LMS -->
-                <div class="service-card rounded-xl p-4 sm:p-6 card-hover">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-fuchsia-400 to-pink-400 rounded-lg flex items-center justify-center mb-4 text-lg">📚</div>
-                    <h4 class="card-title font-bold text-base sm:text-lg mb-2">Learning Management</h4>
-                    <p class="card-description text-xs sm:text-sm">Employee training and development</p>
-                </div>
-
-                <!-- Fleet Management -->
-                <div class="service-card rounded-xl p-4 sm:p-6 card-hover">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-slate-500 to-gray-600 rounded-lg flex items-center justify-center mb-4 text-lg">🚗</div>
-                    <h4 class="card-title font-bold text-base sm:text-lg mb-2">Fleet Management</h4>
-                    <p class="card-description text-xs sm:text-sm">Vehicle tracking and maintenance</p>
+                <div class="fs-visual reveal">
+                    <!-- Animated shield / resilience illustration -->
+                    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="anim-svg">
+                        <defs>
+                            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="rgba(255,255,255,0.08)"/>
+                                <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- Grid lines -->
+                        <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+                            <line x1="0" y1="80" x2="500" y2="80"/><line x1="0" y1="160" x2="500" y2="160"/>
+                            <line x1="0" y1="240" x2="500" y2="240"/><line x1="0" y1="320" x2="500" y2="320"/>
+                            <line x1="100" y1="0" x2="100" y2="400"/><line x1="200" y1="0" x2="200" y2="400"/>
+                            <line x1="300" y1="0" x2="300" y2="400"/><line x1="400" y1="0" x2="400" y2="400"/>
+                        </g>
+                        <!-- Shield -->
+                        <path d="M250 60 L340 110 L340 210 Q340 290 250 340 Q160 290 160 210 L160 110 Z" fill="url(#g1)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" class="anim-draw"/>
+                        <!-- Inner shield -->
+                        <path d="M250 100 L310 130 L310 200 Q310 260 250 295 Q190 260 190 200 L190 130 Z" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" class="anim-draw" style="animation-delay:0.4s"/>
+                        <!-- Check mark -->
+                        <polyline points="220,195 245,225 285,170" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="anim-draw" style="animation-delay:0.8s"/>
+                        <!-- Orbiting dots -->
+                        <circle cx="250" cy="200" r="110" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4 8"/>
+                        <circle r="4" fill="rgba(255,255,255,0.3)" class="anim-orbit">
+                            <animateMotion dur="8s" repeatCount="indefinite" path="M250,200 m-110,0 a110,110 0 1,1 220,0 a110,110 0 1,1 -220,0" />
+                        </circle>
+                        <circle r="3" fill="rgba(255,255,255,0.15)" class="anim-orbit">
+                            <animateMotion dur="12s" repeatCount="indefinite" path="M250,200 m-110,0 a110,110 0 1,0 220,0 a110,110 0 1,0 -220,0" />
+                        </circle>
+                        <!-- Floating particles -->
+                        <circle cx="80" cy="90" r="2" fill="rgba(255,255,255,0.15)" class="anim-float"/>
+                        <circle cx="420" cy="130" r="1.5" fill="rgba(255,255,255,0.1)" class="anim-float" style="animation-delay:1s"/>
+                        <circle cx="130" cy="320" r="2" fill="rgba(255,255,255,0.12)" class="anim-float" style="animation-delay:2s"/>
+                        <circle cx="390" cy="300" r="1.5" fill="rgba(255,255,255,0.1)" class="anim-float" style="animation-delay:0.5s"/>
+                    </svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                <!-- Left - Features List -->
-                <div>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-10">
-                        Why Choose
-                        <span class="glow-text block mt-2">Tiooex?</span>
-                    </h2>
-
-                    <div class="space-y-4 sm:space-y-6">
-                        <div class="feature-item" style="animation-delay: 0s;">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-base sm:text-lg mb-1 text-white">Industry Expertise</h4>
-                                <p class="text-slate-300 text-sm sm:text-base">Decades of experience across banking, healthcare, retail, and manufacturing</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-item" style="animation-delay: 0.1s;">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-base sm:text-lg mb-1 text-white">Enterprise-Grade Security</h4>
-                                <p class="text-slate-300 text-sm sm:text-base">ISO 27001, GDPR compliant with advanced encryption and protection</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-item" style="animation-delay: 0.2s;">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-base sm:text-lg mb-1 text-white">Proven Scalability</h4>
-                                <p class="text-slate-300 text-sm sm:text-base">Solutions that grow with your business from startups to enterprises</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-item" style="animation-delay: 0.3s;">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-base sm:text-lg mb-1 text-white">24/7 Expert Support</h4>
-                                <p class="text-slate-300 text-sm sm:text-base">Round-the-clock technical support, training, and implementation</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-item" style="animation-delay: 0.4s;">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-base sm:text-lg mb-1 text-white">Continuous Innovation</h4>
-                                <p class="text-slate-300 text-sm sm:text-base">Regular updates with latest technologies and AI capabilities</p>
-                            </div>
-                        </div>
-
-                        <div class="feature-item" style="animation-delay: 0.5s;">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-green-400 flex items-center justify-center flex-shrink-0 mt-1">
-                                <svg class="w-5 h-5 text-slate-900" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-base sm:text-lg mb-1 text-white">Seamless Integration</h4>
-                                <p class="text-slate-300 text-sm sm:text-base">Easy API integration with existing systems and third-party tools</p>
-                            </div>
-                        </div>
-                    </div>
+    <!-- ═══ Section 2: Technology for Every Need ═══ -->
+    <section class="fs-section bg-dark">
+        <div class="fs-inner">
+            <div class="fs-split reverse">
+                <div class="fs-text reveal">
+                    <p class="fs-eyebrow">Technology for every need</p>
+                    <h2 class="fs-title">Technology designed for every business need</h2>
+                    <p class="fs-desc">Tiooex delivers capabilities across cloud infrastructure, data and artificial intelligence, cybersecurity, customer service, digital engineering, and complete technology transformation — giving you the freedom to scale, innovate, and compete.</p>
+                    <a href="products.html" class="fs-link">Check capabilities ›</a>
                 </div>
-
-                <!-- Right - Visual Cards -->
-                <div class="space-y-4 sm:space-y-6">
-                    <!-- Big Card -->
-                    <div class="service-card rounded-2xl p-6 sm:p-10 h-52 sm:h-60 flex flex-col justify-between card-hover">
-                        <div>
-                            <div class="icon-gradient w-12 h-12 sm:w-14 sm:h-14 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-xl sm:text-2xl">🚀</div>
-                            <h4 class="card-title text-xl sm:text-2xl font-bold">Innovation Hub</h4>
-                        </div>
-                        <p class="card-description text-sm sm:text-base">Cutting-edge technology stack with latest frameworks</p>
-                    </div>
-
-                    <!-- Two Small Cards -->
-                    <div class="grid grid-cols-2 gap-3 sm:gap-6">
-                        <div class="service-card rounded-2xl p-4 sm:p-6 card-hover">
-                            <div class="icon-gradient-2 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-lg sm:text-xl">⚡</div>
-                            <h4 class="card-title font-bold text-sm sm:text-base mb-2">Fast Deployment</h4>
-                            <p class="card-description text-xs sm:text-sm">Go live in days</p>
-                        </div>
-
-                        <div class="service-card rounded-2xl p-4 sm:p-6 card-hover">
-                            <div class="icon-gradient-3 w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-lg sm:text-xl">🎯</div>
-                            <h4 class="card-title font-bold text-sm sm:text-base mb-2">Customizable</h4>
-                            <p class="card-description text-xs sm:text-sm">Built for your needs</p>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Card -->
-                    <div class="service-card rounded-2xl p-6 sm:p-8 card-hover border-l-4 border-cyan-400">
-                        <p class="text-slate-100 italic mb-4 text-sm sm:text-base font-medium">
-                            "Tiooex transformed our operations. The ROI was evident within the first month."
-                        </p>
-                        <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-cyan-400 to-green-400"></div>
-                            <div>
-                                <p class="font-bold text-xs sm:text-sm text-white">Sarah Johnson</p>
-                                <p class="text-xs text-slate-300">CEO, Tech Ventures Ltd</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="fs-visual reveal">
+                    <!-- Animated neural network / AI illustration -->
+                    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="anim-svg">
+                        <defs>
+                            <radialGradient id="g2" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
+                                <stop offset="100%" stop-color="transparent"/>
+                            </radialGradient>
+                        </defs>
+                        <circle cx="250" cy="200" r="160" fill="url(#g2)"/>
+                        <!-- Connection lines -->
+                        <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+                            <line x1="170" y1="120" x2="250" y2="200" class="anim-line"/>
+                            <line x1="330" y1="120" x2="250" y2="200" class="anim-line" style="animation-delay:0.3s"/>
+                            <line x1="150" y1="250" x2="250" y2="200" class="anim-line" style="animation-delay:0.6s"/>
+                            <line x1="350" y1="260" x2="250" y2="200" class="anim-line" style="animation-delay:0.9s"/>
+                            <line x1="250" y1="80" x2="250" y2="200" class="anim-line" style="animation-delay:0.2s"/>
+                            <line x1="250" y1="320" x2="250" y2="200" class="anim-line" style="animation-delay:0.5s"/>
+                            <line x1="100" y1="180" x2="170" y2="120" class="anim-line" style="animation-delay:1s"/>
+                            <line x1="400" y1="170" x2="330" y2="120" class="anim-line" style="animation-delay:1.2s"/>
+                            <line x1="80" y1="300" x2="150" y2="250" class="anim-line" style="animation-delay:1.4s"/>
+                            <line x1="420" y1="310" x2="350" y2="260" class="anim-line" style="animation-delay:1.6s"/>
+                        </g>
+                        <!-- Outer nodes -->
+                        <circle cx="100" cy="180" r="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse"/>
+                        <circle cx="400" cy="170" r="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:0.5s"/>
+                        <circle cx="80" cy="300" r="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1" class="anim-pulse" style="animation-delay:1s"/>
+                        <circle cx="420" cy="310" r="5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1" class="anim-pulse" style="animation-delay:1.5s"/>
+                        <!-- Middle layer nodes -->
+                        <circle cx="170" cy="120" r="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1" class="anim-pulse" style="animation-delay:0.2s"/>
+                        <circle cx="330" cy="120" r="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1" class="anim-pulse" style="animation-delay:0.7s"/>
+                        <circle cx="150" cy="250" r="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1" class="anim-pulse" style="animation-delay:1.2s"/>
+                        <circle cx="350" cy="260" r="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1" class="anim-pulse" style="animation-delay:0.4s"/>
+                        <circle cx="250" cy="80" r="7" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:0.9s"/>
+                        <circle cx="250" cy="320" r="7" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:1.3s"/>
+                        <!-- Center core -->
+                        <circle cx="250" cy="200" r="18" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" class="anim-pulse"/>
+                        <circle cx="250" cy="200" r="8" fill="rgba(255,255,255,0.2)"/>
+                        <!-- Data flow particles -->
+                        <circle r="2.5" fill="rgba(255,255,255,0.4)">
+                            <animateMotion dur="3s" repeatCount="indefinite" path="M170,120 L250,200" />
+                        </circle>
+                        <circle r="2" fill="rgba(255,255,255,0.3)">
+                            <animateMotion dur="4s" repeatCount="indefinite" path="M330,120 L250,200" />
+                        </circle>
+                        <circle r="2" fill="rgba(255,255,255,0.25)">
+                            <animateMotion dur="3.5s" repeatCount="indefinite" path="M250,200 L350,260" />
+                        </circle>
+                    </svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-slate-900/30">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 sm:mb-20">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-                    Trusted by <span class="glow-text">Industry Leaders</span>
-                </h2>
-                <p class="text-base sm:text-lg lg:text-xl text-slate-400 max-w-2xl mx-auto px-4">
-                    Join hundreds of companies transforming their operations with Tiooex
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Testimonial Card 1 -->
-                <div class="testimonial-card rounded-2xl p-6 sm:p-8 card-hover">
-                    <div class="flex gap-1 mb-6">
-                        ⭐⭐⭐⭐⭐
-                    </div>
-                    <p class="text-slate-100 mb-6 leading-relaxed text-sm sm:text-base font-medium">
-                        "The ERP system has streamlined all our business processes. Implementation was smooth and support was exceptional."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-400"></div>
-                        <div>
-                            <p class="font-bold text-sm sm:text-base text-white">Rajesh Kumar</p>
-                            <p class="text-slate-300 text-xs sm:text-sm">Operations Manager, Global Industries</p>
-                        </div>
-                    </div>
+    <!-- ═══ Section 3: Compact & Portable ═══ -->
+    <section class="fs-section bg-darker">
+        <div class="fs-inner">
+            <div class="fs-split">
+                <div class="fs-text reveal">
+                    <p class="fs-eyebrow">Flexible engagement</p>
+                    <h2 class="fs-title">Compact solutions for fast delivery</h2>
+                    <p class="fs-desc">Not every challenge requires a full transformation. Tiooex offers compact, modular engagement models designed for speed — including focused sprints, advisory sessions, and rapid prototyping built to deliver results in weeks, not months.</p>
+                    <a href="services.html" class="fs-link">Learn more ›</a>
                 </div>
-
-                <!-- Testimonial Card 2 -->
-                <div class="testimonial-card rounded-2xl p-6 sm:p-8 card-hover">
-                    <div class="flex gap-1 mb-6">
-                        ⭐⭐⭐⭐⭐
-                    </div>
-                    <p class="text-slate-100 mb-6 leading-relaxed text-sm sm:text-base font-medium">
-                        "Our sales increased by 40% since implementing the CRM. The pipeline management is incredibly intuitive."
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-400"></div>
-                        <div>
-                            <p class="font-bold text-sm sm:text-base text-white">Priya Sharma</p>
-                            <p class="text-slate-300 text-xs sm:text-sm">Sales Director, Enterprise Co.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Card 3 -->
-                <div class="testimonial-card rounded-2xl p-6 sm:p-8 card-hover">
-                    <div class="flex gap-1 mb-6">
-                        ⭐⭐⭐⭐⭐
-                    </div>
-                    <p class="text-slate-100 mb-6 leading-relaxed text-sm sm:text-base font-medium">
-                        "Outstanding AI capabilities. We've automated 60% of our manual processes. Highly recommended!"
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-purple-400 to-pink-400"></div>
-                        <div>
-                            <p class="font-bold text-sm sm:text-base text-white">Amit Patel</p>
-                            <p class="text-slate-300 text-xs sm:text-sm">CTO, TechFlow Solutions</p>
-                        </div>
-                    </div>
+                <div class="fs-visual reveal">
+                    <!-- Animated sprint / speed illustration -->
+                    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="anim-svg">
+                        <!-- Speed lines -->
+                        <line x1="60" y1="160" x2="200" y2="160" stroke="rgba(255,255,255,0.08)" stroke-width="2" stroke-linecap="round" class="anim-speed"/>
+                        <line x1="40" y1="200" x2="220" y2="200" stroke="rgba(255,255,255,0.12)" stroke-width="2" stroke-linecap="round" class="anim-speed" style="animation-delay:0.2s"/>
+                        <line x1="80" y1="240" x2="190" y2="240" stroke="rgba(255,255,255,0.06)" stroke-width="2" stroke-linecap="round" class="anim-speed" style="animation-delay:0.4s"/>
+                        <!-- Rocket body -->
+                        <g class="anim-rocket">
+                            <polygon points="340,200 280,170 280,230" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" stroke-linejoin="round"/>
+                            <rect x="240" y="180" width="42" height="40" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                            <!-- Window -->
+                            <circle cx="300" cy="200" r="10" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                            <!-- Fins -->
+                            <polygon points="240,180 220,155 240,170" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                            <polygon points="240,220 220,245 240,230" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                            <!-- Flame -->
+                            <ellipse cx="225" cy="200" rx="18" ry="12" fill="rgba(255,255,255,0.05)" class="anim-flame"/>
+                            <ellipse cx="218" cy="200" rx="10" ry="6" fill="rgba(255,255,255,0.08)" class="anim-flame" style="animation-delay:0.1s"/>
+                        </g>
+                        <!-- Progress bar -->
+                        <rect x="100" y="310" width="300" height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+                        <rect x="100" y="310" width="0" height="4" rx="2" fill="rgba(255,255,255,0.2)" class="anim-progress"/>
+                        <text x="100" y="340" font-size="10" fill="rgba(255,255,255,0.25)" font-family="Inter,sans-serif" letter-spacing="0.1em">SPRINT PROGRESS</text>
+                        <!-- Floating modules -->
+                        <rect x="370" y="100" width="50" height="50" rx="8" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1" class="anim-float"/>
+                        <rect x="400" y="270" width="40" height="40" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1" class="anim-float" style="animation-delay:1s"/>
+                        <rect x="60" y="90" width="35" height="35" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1" class="anim-float" style="animation-delay:2s"/>
+                    </svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 sm:mb-20">
-                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-                    Simple, Transparent
-                    <span class="glow-text block mt-2">Pricing</span>
-                </h2>
-                <p class="text-base sm:text-lg lg:text-xl text-slate-400 max-w-2xl mx-auto px-4">
-                    Choose the plan that fits your business needs
-                </p>
+    <!-- ═══ Steps Section: Get started in minutes ═══ -->
+    <section class="steps-section">
+        <p class="fs-eyebrow reveal">Get started in minutes</p>
+        <h2 class="fs-title reveal">A simple path from<br>opportunity to execution</h2>
+        <div class="step-grid reveal">
+            <div class="step-item">
+                <span class="step-num">1</span>
+                <h3>Identify</h3>
+                <p>Choose the business capability or industry challenge you want to improve.</p>
             </div>
+            <div class="step-item">
+                <span class="step-num">2</span>
+                <h3>Align</h3>
+                <p>Select the right strategy, technology model, and experience direction.</p>
+            </div>
+            <div class="step-item">
+                <span class="step-num">3</span>
+                <h3>Launch</h3>
+                <p>Move toward implementation with confidence, structure, and visibility.</p>
+            </div>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Starter Plan -->
-                <div class="pricing-card rounded-2xl p-6 sm:p-10 card-hover">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-4">Starter</h3>
-                    <div class="mb-6">
-                        <span class="text-3xl sm:text-4xl font-bold">₹99,999</span>
-                        <p class="text-slate-400 text-xs sm:text-sm mt-2">/month • 1 Solution</p>
-                    </div>
-                    <button onclick="window.location.href='mailto:pawan@tiooex.in?subject=Interested%20in%20Starter%20Plan%20-%20Tiooex'" class="w-full py-2 sm:py-3 border-2 border-cyan-400/50 text-cyan-300 rounded-lg font-bold text-sm sm:text-base mb-6 sm:mb-8 hover:bg-cyan-400/10 transition-all">
-                        Get Started
-                    </button>
-                    <ul class="space-y-3 sm:space-y-4 text-slate-200 text-sm sm:text-base">
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Single Solution Access</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Up to 50 Users</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Email Support</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Basic Analytics</span>
-                        </li>
-                    </ul>
+    <!-- ═══ Section 4: Flexible Service Plans ═══ -->
+    <section class="fs-section bg-darker">
+        <div class="fs-inner">
+            <div class="fs-split reverse">
+                <div class="fs-text reveal">
+                    <p class="fs-eyebrow">Flexible service plans</p>
+                    <h2 class="fs-title">Engagement models that scale with you</h2>
+                    <p class="fs-desc">Tiooex offers flexible engagement plans everywhere — from advisory and strategy through to full managed services and long-term transformation partnerships. Start small or go all-in.</p>
+                    <a href="mailto:pawan@tiooex.in?subject=Engagement%20inquiry" class="fs-link">Check plans ›</a>
                 </div>
-
-                <!-- Professional Plan (Featured) -->
-                <div class="pricing-card featured rounded-2xl p-6 sm:p-10 card-hover">
-                    <div class="inline-block mb-4 px-4 py-1 bg-gradient-to-r from-cyan-500 to-green-500 text-slate-900 rounded-full text-xs font-bold">
-                        MOST POPULAR
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-bold mb-4">Professional</h3>
-                    <div class="mb-6">
-                        <span class="text-3xl sm:text-4xl font-bold glow-text">₹299,999</span>
-                        <p class="text-slate-400 text-xs sm:text-sm mt-2">/month • 5 Solutions</p>
-                    </div>
-                    <button class="w-full py-2 sm:py-3 bg-gradient-to-r from-cyan-500 to-green-500 text-slate-900 rounded-lg font-bold text-sm sm:text-base mb-6 sm:mb-8 hover:shadow-lg hover:shadow-cyan-500/50 transition-all">
-                        Start Free Trial
-                    </button>
-                    <ul class="space-y-3 sm:space-y-4 text-slate-200 text-sm sm:text-base">
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>5 Solutions Included</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Up to 500 Users</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Priority Support 24/7</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Advanced Analytics</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>API Integration</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Enterprise Plan -->
-                <div class="pricing-card rounded-2xl p-6 sm:p-10 card-hover">
-                    <h3 class="text-xl sm:text-2xl font-bold mb-4">Enterprise</h3>
-                    <div class="mb-6">
-                        <span class="text-3xl sm:text-4xl font-bold">Custom</span>
-                        <p class="text-slate-400 text-xs sm:text-sm mt-2">/month • All Solutions</p>
-                    </div>
-                    <button class="w-full py-2 sm:py-3 border-2 border-cyan-400/50 text-cyan-300 rounded-lg font-bold text-sm sm:text-base mb-6 sm:mb-8 hover:bg-cyan-400/10 transition-all" onclick="window.location.href='mailto:pawan@tiooex.in'">
-                        Contact Sales
-                    </button>
-                    <ul class="space-y-3 sm:space-y-4 text-slate-200 text-sm sm:text-base">
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>All 18+ Solutions</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Unlimited Users</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Dedicated Support</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Custom Integrations</span>
-                        </li>
-                        <li class="flex gap-3">
-                            <span class="text-cyan-300">✓</span>
-                            <span>Training & Onboarding</span>
-                        </li>
-                    </ul>
+                <div class="fs-visual reveal">
+                    <!-- Animated scale / growth illustration -->
+                    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="anim-svg">
+                        <!-- Grid -->
+                        <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+                            <line x1="80" y1="320" x2="420" y2="320"/>
+                            <line x1="80" y1="260" x2="420" y2="260" stroke-dasharray="4 4"/>
+                            <line x1="80" y1="200" x2="420" y2="200" stroke-dasharray="4 4"/>
+                            <line x1="80" y1="140" x2="420" y2="140" stroke-dasharray="4 4"/>
+                            <line x1="80" y1="80" x2="420" y2="80" stroke-dasharray="4 4"/>
+                        </g>
+                        <!-- Bars -->
+                        <rect x="110" y="280" width="40" height="40" rx="4" fill="rgba(255,255,255,0.06)" class="anim-bar" style="--bar-h:40px"/>
+                        <rect x="170" y="240" width="40" height="80" rx="4" fill="rgba(255,255,255,0.08)" class="anim-bar" style="--bar-h:80px;animation-delay:0.15s"/>
+                        <rect x="230" y="200" width="40" height="120" rx="4" fill="rgba(255,255,255,0.1)" class="anim-bar" style="--bar-h:120px;animation-delay:0.3s"/>
+                        <rect x="290" y="150" width="40" height="170" rx="4" fill="rgba(255,255,255,0.13)" class="anim-bar" style="--bar-h:170px;animation-delay:0.45s"/>
+                        <rect x="350" y="100" width="40" height="220" rx="4" fill="rgba(255,255,255,0.16)" class="anim-bar" style="--bar-h:220px;animation-delay:0.6s"/>
+                        <!-- Trend line -->
+                        <polyline points="130,275 190,232 250,190 310,142 370,92" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="anim-draw"/>
+                        <!-- Dot on trend -->
+                        <circle r="5" fill="rgba(255,255,255,0.4)">
+                            <animateMotion dur="4s" repeatCount="indefinite" path="M130,275 L190,232 L250,190 L310,142 L370,92" />
+                        </circle>
+                        <!-- Scale icons -->
+                        <g class="anim-float" style="animation-delay:0.5s">
+                            <circle cx="440" cy="70" r="16" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                            <text x="440" y="75" text-anchor="middle" font-size="14" fill="rgba(255,255,255,0.3)" font-family="Inter,sans-serif">↑</text>
+                        </g>
+                        <!-- Labels -->
+                        <text x="80" y="350" font-size="10" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" letter-spacing="0.1em">ADVISORY</text>
+                        <text x="230" y="350" font-size="10" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" letter-spacing="0.1em">MANAGED</text>
+                        <text x="350" y="350" font-size="10" fill="rgba(255,255,255,0.2)" font-family="Inter,sans-serif" letter-spacing="0.1em">ENTERPRISE</text>
+                    </svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-green-500/20 blur-3xl"></div>
-        <div class="absolute inset-0">
-            <div class="blob w-48 h-48 sm:w-96 sm:h-96" style="top: -10%; right: -10%;"></div>
-        </div>
-
-        <div class="relative max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8">
-                Ready to Transform Your
-                <span class="glow-text block mt-3 sm:mt-4">Business Today?</span>
-            </h2>
-
-            <p class="text-base sm:text-lg lg:text-xl text-slate-300 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4">
-                Join industry leaders and take your business to the next level with Tiooex's comprehensive enterprise solutions.
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center mb-8 sm:mb-12">
-                <input type="email" placeholder="Enter your email" class="px-4 sm:px-8 py-3 sm:py-4 rounded-xl bg-slate-800/50 border border-slate-700 focus:border-cyan-400 focus:outline-none text-white placeholder-slate-500 w-full sm:w-96 backdrop-blur-xl text-sm sm:text-base">
-                <button class="px-6 sm:px-10 py-3 sm:py-4 bg-gradient-to-r from-cyan-500 to-green-500 text-slate-900 rounded-xl font-bold text-sm sm:text-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all hover:scale-105 whitespace-nowrap" onclick="window.location.href='mailto:pawan@tiooex.in?subject=I%20want%20to%20get%20started%20with%20Tiooex'">
-                    Get Started Free
-                </button>
-            </div>
-
-            <p class="text-xs sm:text-sm text-slate-400 px-4">
-                ✓ No credit card required • 14-day free trial • Full access to all features
-            </p>
-
-            <!-- Contact Info -->
-            <div class="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-700">
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 text-slate-300 text-xs sm:text-sm flex-wrap px-4">
-                    <div class="flex items-center gap-2">
-                        <span class="text-cyan-400 text-lg">📧</span>
-                        <a href="mailto:pawan@tiooex.in" class="hover:text-cyan-400 transition-colors">pawan@tiooex.in</a>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-cyan-400 text-lg">📱</span>
-                        <a href="tel:+919059076555" class="hover:text-cyan-400 transition-colors">+91-9059076555</a>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-cyan-400 text-lg">🌐</span>
-                        <a href="https://www.tiooex.in" target="_blank" class="hover:text-cyan-400 transition-colors">www.tiooex.in</a>
-                    </div>
+    <!-- ═══ Section 5: Engineered for Enterprise ═══ -->
+    <section class="fs-section bg-dark">
+        <div class="fs-inner">
+            <div class="fs-split">
+                <div class="fs-text reveal">
+                    <p class="fs-eyebrow">Engineered for enterprise</p>
+                    <h2 class="fs-title">Deep expertise across technology and industry</h2>
+                    <p class="fs-desc">With deep experience in cloud, data, AI, cybersecurity, and digital engineering — and a focus on automotive, banking, capital markets, insurance, and public services — Tiooex brings both the tools and the sector knowledge to deliver at scale.</p>
+                    <a href="services.html" class="fs-link">Learn more ›</a>
+                </div>
+                <div class="fs-visual reveal">
+                    <!-- Animated circuit / engineering illustration -->
+                    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="anim-svg">
+                        <defs>
+                            <radialGradient id="g5" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="rgba(255,255,255,0.04)"/>
+                                <stop offset="100%" stop-color="transparent"/>
+                            </radialGradient>
+                        </defs>
+                        <circle cx="250" cy="200" r="180" fill="url(#g5)"/>
+                        <!-- Circuit traces -->
+                        <g stroke="rgba(255,255,255,0.08)" stroke-width="1.5" fill="none" stroke-linecap="round">
+                            <path d="M250 200 L250 100 L350 100" class="anim-draw"/>
+                            <path d="M250 200 L350 200 L350 280" class="anim-draw" style="animation-delay:0.3s"/>
+                            <path d="M250 200 L250 300 L150 300" class="anim-draw" style="animation-delay:0.6s"/>
+                            <path d="M250 200 L150 200 L150 120" class="anim-draw" style="animation-delay:0.9s"/>
+                            <path d="M250 200 L170 130" class="anim-draw" style="animation-delay:0.2s"/>
+                            <path d="M250 200 L330 270" class="anim-draw" style="animation-delay:0.5s"/>
+                            <path d="M250 200 L330 130" class="anim-draw" style="animation-delay:0.8s"/>
+                            <path d="M250 200 L170 270" class="anim-draw" style="animation-delay:1.1s"/>
+                        </g>
+                        <!-- Junction nodes -->
+                        <g>
+                            <rect x="340" y="90" width="20" height="20" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse"/>
+                            <rect x="340" y="270" width="20" height="20" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:0.5s"/>
+                            <rect x="140" y="290" width="20" height="20" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:1s"/>
+                            <rect x="140" y="110" width="20" height="20" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:1.5s"/>
+                            <circle cx="170" cy="130" r="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:0.3s"/>
+                            <circle cx="330" cy="270" r="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:0.8s"/>
+                            <circle cx="330" cy="130" r="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:1.3s"/>
+                            <circle cx="170" cy="270" r="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1" class="anim-pulse" style="animation-delay:0.6s"/>
+                        </g>
+                        <!-- Center processor -->
+                        <rect x="225" y="175" width="50" height="50" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+                        <rect x="237" y="187" width="26" height="26" rx="4" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                        <!-- Animated data pulses along traces -->
+                        <circle r="3" fill="rgba(255,255,255,0.5)">
+                            <animateMotion dur="3s" repeatCount="indefinite" path="M250,200 L250,100 L350,100" />
+                        </circle>
+                        <circle r="2.5" fill="rgba(255,255,255,0.4)">
+                            <animateMotion dur="3.5s" repeatCount="indefinite" path="M250,200 L350,200 L350,280" />
+                        </circle>
+                        <circle r="2.5" fill="rgba(255,255,255,0.35)">
+                            <animateMotion dur="4s" repeatCount="indefinite" path="M250,200 L250,300 L150,300" />
+                        </circle>
+                        <circle r="2" fill="rgba(255,255,255,0.3)">
+                            <animateMotion dur="3.2s" repeatCount="indefinite" path="M250,200 L150,200 L150,120" />
+                        </circle>
+                        <!-- Outer ring -->
+                        <circle cx="250" cy="200" r="150" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1" stroke-dasharray="6 10">
+                            <animateTransform attributeName="transform" type="rotate" from="0 250 200" to="360 250 200" dur="40s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-800 py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-slate-900/50">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12">
-                <!-- Brand -->
-                <div class="col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-1">
-                    <div class="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-cyan-400 to-green-400 flex items-center justify-center font-bold text-sm sm:text-base text-slate-900">
-                            T
-                        </div>
-                        <span class="text-lg sm:text-xl font-bold glow-text">Tiooex</span>
-                    </div>
-                    <p class="text-slate-400 mb-4 sm:mb-6 text-xs sm:text-sm">
-                        Leading enterprise software solutions provider for digital transformation.
-                    </p>
-                    <div class="space-y-2 text-slate-400 text-xs sm:text-sm">
-                        <p><strong class="text-white">Email:</strong> <a href="mailto:pawan@tiooex.in" class="text-cyan-400 hover:text-cyan-300">pawan@tiooex.in</a></p>
-                        <p><strong class="text-white">Phone:</strong> <a href="tel:+919059076555" class="text-cyan-400 hover:text-cyan-300">+91-9059076555</a></p>
-                        <p><strong class="text-white">Website:</strong> <a href="https://www.tiooex.in" target="_blank" class="text-cyan-400 hover:text-cyan-300">www.tiooex.in</a></p>
-                    </div>
-                </div>
+    <!-- ═══ CTA Section (like Starlink trial section) ═══ -->
+    <section class="cta-section" id="contact">
+        <div class="cta-inner reveal">
+            <span class="trial-badge">Free consultation</span>
+            <h2 class="cta-title">Ready to transform your business?</h2>
+            <p class="cta-desc">Get in touch to discuss your enterprise technology needs. We'll respond within 24 hours.</p>
+            <form class="cta-form" onsubmit="window.location.href='mailto:pawan@tiooex.in?subject=Enterprise%20inquiry%20from%20'+encodeURIComponent(this.querySelector('input').value);return false;">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn btn-primary">Get started</button>
+            </form>
+            <div class="cta-links">
+                <a href="products.html">View capabilities</a>
+                <a href="services.html">View industries</a>
+            </div>
+        </div>
+    </section>
 
-                <!-- Products -->
-                <div>
-                    <h4 class="font-bold text-sm sm:text-lg mb-4 sm:mb-6">Products</h4>
-                    <ul class="space-y-2 sm:space-y-4 text-slate-400 text-xs sm:text-sm">
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">CRM System</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">ERP Solutions</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">E-Commerce</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">HR & Payroll</a></li>
-                    </ul>
-                </div>
-
-                <!-- Company -->
-                <div>
-                    <h4 class="font-bold text-sm sm:text-lg mb-4 sm:mb-6">Company</h4>
-                    <ul class="space-y-2 sm:space-y-4 text-slate-400 text-xs sm:text-sm">
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">About Us</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Careers</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Blog</a></li>
-                        <li><a href="mailto:pawan@tiooex.in" class="hover:text-cyan-400 transition-colors">Contact</a></li>
-                    </ul>
-                </div>
-
-                <!-- Resources -->
-                <div>
-                    <h4 class="font-bold text-sm sm:text-lg mb-4 sm:mb-6">Resources</h4>
-                    <ul class="space-y-2 sm:space-y-4 text-slate-400 text-xs sm:text-sm">
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Documentation</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">API Docs</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Support</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Community</a></li>
-                    </ul>
-                </div>
-
-                <!-- Legal -->
-                <div>
-                    <h4 class="font-bold text-sm sm:text-lg mb-4 sm:mb-6">Legal</h4>
-                    <ul class="space-y-2 sm:space-y-4 text-slate-400 text-xs sm:text-sm">
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Security</a></li>
-                        <li><a href="#" class="hover:text-cyan-400 transition-colors">Compliance</a></li>
-                    </ul>
+    <!-- ═══ Footer ═══ -->
+    <footer class="site-footer">
+        <div class="footer-wrap">
+            <div class="footer-col">
+                <a href="index.html" class="footer-brand">Tiooex</a>
+                <p class="footer-tagline">Enterprise technology and industry solutions</p>
+                <p class="footer-meta"><a href="mailto:pawan@tiooex.in">pawan@tiooex.in</a></p>
+                <p class="footer-meta">GSTIN: 09BUKPV0787L1ZN</p>
+            </div>
+            <div class="footer-col">
+                <p class="footer-heading">Company</p>
+                <div class="footer-links">
+                    <a href="products.html">Capabilities</a>
+                    <a href="services.html">Industries</a>
+                    <a href="blogs.html">Insights</a>
+                    <a href="#contact">Contact</a>
                 </div>
             </div>
-
-            <div class="border-t border-slate-800 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center text-slate-400 text-xs sm:text-sm gap-4">
-                <p>&copy; 2025 Tiooex. All rights reserved. | Made with ❤️ for Innovation</p>
-                <div class="flex gap-6 sm:gap-8">
-                    <a href="#" class="hover:text-cyan-400 transition-colors">Status Page</a>
-                    <a href="#" class="hover:text-cyan-400 transition-colors">Sitemap</a>
-                </div>
+            <div class="footer-col">
+                <p class="footer-heading">Stay updated</p>
+                <form class="newsletter-form" onsubmit="window.location.href='mailto:pawan@tiooex.in?subject=Newsletter%20signup%20'+encodeURIComponent(this.querySelector('input').value);return false;">
+                    <input type="email" placeholder="Your email">
+                    <button type="submit">Sign up</button>
+                </form>
+                <p class="footer-legal">By clicking Sign Up, you agree to our privacy policy.</p>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Tiooex &copy; 2026. All rights reserved.</p>
+            <p>Visitors: <span id="visitor-count">0</span></p>
         </div>
     </footer>
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-scroll');
-            } else {
-                navbar.classList.remove('navbar-scroll');
-            }
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Mobile menu toggle with proper animation
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    </script>
 </body>
 </html>
