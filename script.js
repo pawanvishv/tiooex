@@ -1,6 +1,11 @@
 document.documentElement.classList.add("js");
 
 document.addEventListener("DOMContentLoaded", () => {
+    const publicMail = ["contact.tiooex", "gmail.com"].join("@");
+    document.querySelectorAll(".footer-mail").forEach((link) => {
+        link.textContent = publicMail;
+        link.href = "mailto:" + publicMail;
+    });
     const data = window.TIOOEX || { capabilities: [], articles: [], industries: [] };
     const nav = document.getElementById("site-nav");
     const toggle = document.getElementById("mobile-toggle");
@@ -361,7 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
         actions.className = "detail-actions";
         const mail = document.createElement("a");
         mail.className = "btn btn-primary";
-        mail.href = "mailto:contact.tiooex@gmail.com?subject=" + encodeURIComponent("Scope inquiry — " + cap.name);
+        mail.href = "mailto:" + publicMail + "?subject=" + encodeURIComponent("Scope inquiry — " + cap.name);
         mail.textContent = "Discuss this scope";
         const more = document.createElement("a");
         more.className = "btn btn-secondary";
@@ -610,11 +615,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 "",
                 message || "No additional note."
             ].join("\n");
-            window.location.href = `mailto:contact.tiooex@gmail.com?subject=${encodeURIComponent("Enterprise inquiry — " + need)}&body=${encodeURIComponent(body)}`;
+            window.location.href = "mailto:" + publicMail + "?subject=" + encodeURIComponent("Enterprise inquiry — " + need) + "&body=" + encodeURIComponent(body);
             const status = document.getElementById("inquiry-status");
             if (status) {
                 status.hidden = false;
-                status.textContent = "Your email app should open with this inquiry. If it does not, write to contact.tiooex@gmail.com.";
+                status.textContent = "Your email app should open with this inquiry. If it does not, write to " + publicMail + ".";
             }
         });
     }
@@ -716,7 +721,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const email = form.querySelector("input[type=email]");
             if (!email || !email.value.trim()) return;
             const subject = form.dataset.subject || "Note from tiooex.in";
-            window.location.href = `mailto:contact.tiooex@gmail.com?subject=${encodeURIComponent(subject + " — " + email.value.trim())}`;
+            window.location.href = "mailto:" + publicMail + "?subject=" + encodeURIComponent(subject + " — " + email.value.trim());
             const status = form.parentElement.querySelector(".form-status");
             if (status) {
                 status.hidden = false;
