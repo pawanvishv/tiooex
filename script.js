@@ -170,6 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".strip-row").forEach((row) => {
         let timer = null;
         let paused = false;
+        const clickToOpen = document.body.classList.contains("page-services");
         const visibleStrips = () => [...row.querySelectorAll(".strip")].filter((item) => !item.classList.contains("is-filtered-out"));
         const advance = () => {
             if (paused) return;
@@ -191,6 +192,11 @@ document.addEventListener("DOMContentLoaded", () => {
         row.querySelectorAll(".strip").forEach((strip) => {
             strip.addEventListener("pointerenter", (event) => {
                 if (event.pointerType === "touch") return;
+                if (clickToOpen) {
+                    paused = true;
+                    clearInterval(timer);
+                    return;
+                }
                 hold(strip);
             });
             strip.addEventListener("click", (event) => {

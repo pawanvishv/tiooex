@@ -1,6 +1,6 @@
 /* ── Reset & Base ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html,body{scroll-behavior:smooth}
 body{
     font-family:'Manrope',system-ui,-apple-system,sans-serif;
     background:#070b10;
@@ -11,6 +11,15 @@ body{
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 button{cursor:pointer;font-family:inherit}
+.stage-list,
+.engage-row,
+.note-list,
+.mobile-panel,
+.drawer,
+.reader{
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+}
 main section[id],
 main article[id],
 .cap-card[id],
@@ -3269,7 +3278,10 @@ body.menu-open .site-nav{
 
 @media(prefers-reduced-motion:reduce){
     *:not(.stage-canvas *){animation:none !important;transition:none !important}
-    html{scroll-behavior:auto !important}
+    html,body,
+    .stage-list,.engage-row,.note-list,.mobile-panel,.drawer,.reader{
+        scroll-behavior:auto !important;
+    }
     .js .reveal{opacity:1;transform:none}
     .cap-card,.insight-card,.cap-board a,.engage-row article,.note-list a,
     .swap-visual,.plat-visual,.plat-detail,.stage-canvas,.footer-card,
