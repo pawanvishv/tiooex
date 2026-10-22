@@ -82,15 +82,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.12 });
-    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        revealItems.forEach((el) => revealObserver.observe(el));
+    } else {
+        revealItems.forEach((el) => el.classList.add("visible"));
+    }
 
     const jump = document.querySelector(".jumpbar");
     if (jump) {
@@ -665,11 +670,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     const listBox = list.getBoundingClientRect();
                     const itemBox = active.getBoundingClientRect();
-                    list.scrollTo({
-                        top: itemBox.top - listBox.top + list.scrollTop - (list.clientHeight - itemBox.height) / 2,
-                        left: itemBox.left - listBox.left + list.scrollLeft - (list.clientWidth - itemBox.width) / 2,
-                        behavior: smooth ? "smooth" : "auto"
-                    });
+                    const top = itemBox.top - listBox.top + list.scrollTop - (list.clientHeight - itemBox.height) / 2;
+                    const left = itemBox.left - listBox.left + list.scrollLeft - (list.clientWidth - itemBox.width) / 2;
+                    if (typeof list.scrollTo === "function") {
+                        list.scrollTo({ top, left, behavior: smooth ? "smooth" : "auto" });
+                    } else {
+                        list.scrollTop = top;
+                        list.scrollLeft = left;
+                    }
                 }
             }
         };
@@ -708,10 +716,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const current = sceneButtons.find((button) => button.getAttribute("aria-pressed") === "true") || sceneButtons[0];
         showScene(current.dataset.pick, false);
         startScenes();
-        window.matchMedia("(max-width: 900px)").addEventListener("change", () => {
+        const layoutQuery = window.matchMedia("(max-width: 900px)");
+        const refreshSceneLayout = () => {
             const picked = sceneButtons.find((button) => button.getAttribute("aria-pressed") === "true") || sceneButtons[0];
             showScene(picked.dataset.pick, false);
-        });
+        };
+        if (typeof layoutQuery.addEventListener === "function") {
+            layoutQuery.addEventListener("change", refreshSceneLayout);
+        } else if (typeof layoutQuery.addListener === "function") {
+            layoutQuery.addListener(refreshSceneLayout);
+        }
     }
 
     const segLinks = [...document.querySelectorAll(".seg-nav a")];
