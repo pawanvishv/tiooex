@@ -469,6 +469,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const pages = [
             ["Home", "index.html"],
             ["Capabilities", "products.html"],
+            ["Platforms", "platforms.html"],
             ["Industries", "services.html"],
             ["Insights", "blogs.html"],
             ["Contact", "index.html#site-footer"],
@@ -646,19 +647,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             if (active && active.parentElement) {
                 const list = active.parentElement;
-                const count = sceneButtons.length;
-                const index = sceneButtons.indexOf(active);
-                const lead = Math.max(0, Math.floor(count / 2) - 1);
-                for (let step = 0; step < count; step++) {
-                    list.appendChild(sceneButtons[(index - lead + step + count) % count]);
+                const narrow = window.matchMedia("(max-width: 900px)").matches;
+                if (narrow) {
+                    sceneButtons.forEach((button) => list.appendChild(button));
+                } else {
+                    const count = sceneButtons.length;
+                    const index = sceneButtons.indexOf(active);
+                    const lead = Math.max(0, Math.floor(count / 2) - 1);
+                    for (let step = 0; step < count; step++) {
+                        list.appendChild(sceneButtons[(index - lead + step + count) % count]);
+                    }
+                    const listBox = list.getBoundingClientRect();
+                    const itemBox = active.getBoundingClientRect();
+                    list.scrollTo({
+                        top: itemBox.top - listBox.top + list.scrollTop - (list.clientHeight - itemBox.height) / 2,
+                        left: itemBox.left - listBox.left + list.scrollLeft - (list.clientWidth - itemBox.width) / 2,
+                        behavior: smooth ? "smooth" : "auto"
+                    });
                 }
-                const listBox = list.getBoundingClientRect();
-                const itemBox = active.getBoundingClientRect();
-                list.scrollTo({
-                    top: itemBox.top - listBox.top + list.scrollTop - (list.clientHeight - itemBox.height) / 2,
-                    left: itemBox.left - listBox.left + list.scrollLeft - (list.clientWidth - itemBox.width) / 2,
-                    behavior: smooth ? "smooth" : "auto"
-                });
             }
         };
         let timer = null;
@@ -696,6 +702,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const current = sceneButtons.find((button) => button.getAttribute("aria-pressed") === "true") || sceneButtons[0];
         showScene(current.dataset.pick, false);
         startScenes();
+        window.matchMedia("(max-width: 900px)").addEventListener("change", () => {
+            const picked = sceneButtons.find((button) => button.getAttribute("aria-pressed") === "true") || sceneButtons[0];
+            showScene(picked.dataset.pick, false);
+        });
     }
 
     const segLinks = [...document.querySelectorAll(".seg-nav a")];
