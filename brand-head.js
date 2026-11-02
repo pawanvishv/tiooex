@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     const SITE = "https://www.tiooex.in";
     const SITE_NAME = "Tiooex";
     const OG_IMAGE = SITE + "/assets/og-image.jpg";
@@ -47,12 +47,12 @@
     ensureMeta("name", "twitter:image", OG_IMAGE);
     ensureMeta("name", "twitter:image:alt", SITE_NAME + " — enterprise software engineering and platforms");
 
-    ensureLink("icon", "favicon.ico", { sizes: "48x48", type: "image/x-icon" });
-    ensureLink("icon", "assets/favicon-48.jpg", { sizes: "48x48", type: "image/jpeg" });
-    ensureLink("icon", "assets/logo-512.jpg", { sizes: "512x512", type: "image/jpeg" });
-    ensureLink("icon", "favicon.svg", { type: "image/svg+xml" });
-    ensureLink("apple-touch-icon", "assets/logo-512.jpg", { sizes: "512x512" });
-    ensureLink("manifest", "site.webmanifest");
+    ensureLink("icon", "/favicon.ico", { sizes: "48x48", type: "image/x-icon" });
+    ensureLink("icon", "/assets/favicon-48.jpg", { sizes: "48x48", type: "image/jpeg" });
+    ensureLink("icon", "/assets/logo-512.jpg", { sizes: "512x512", type: "image/jpeg" });
+    ensureLink("icon", "/favicon.svg", { type: "image/svg+xml" });
+    ensureLink("apple-touch-icon", "/assets/logo-512.jpg", { sizes: "512x512" });
+    ensureLink("manifest", "/site.webmanifest");
 
     const logoObject = {
         "@type": "ImageObject",

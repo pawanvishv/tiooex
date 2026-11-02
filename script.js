@@ -1,4 +1,25 @@
-document.documentElement.classList.add("js");
+﻿document.documentElement.classList.add("js");
+
+const TIOOEX_PAGE_SLUGS = new Set(["products", "platforms", "services", "blogs", "about", "contact"]);
+
+document.addEventListener("click", (event) => {
+    const link = event.target.closest("a[href]");
+    if (!link || link.target === "_blank" || link.hasAttribute("download")) return;
+    const raw = link.getAttribute("href");
+    if (!raw || raw.startsWith("#") || raw.startsWith("mailto:") || raw.startsWith("tel:")) return;
+    let url;
+    try {
+        url = new URL(raw, window.location.href);
+    } catch (_) {
+        return;
+    }
+    if (url.origin !== window.location.origin) return;
+    const slug = url.pathname.replace(/\/+$/, "").split("/").filter(Boolean).pop() || "";
+    const bare = slug.replace(/\.html$/i, "").toLowerCase();
+    if (!TIOOEX_PAGE_SLUGS.has(bare) || slug.toLowerCase().endsWith(".html")) return;
+    event.preventDefault();
+    window.location.assign("/" + bare + ".html" + url.search + url.hash);
+});
 
 if (typeof history !== "undefined" && "scrollRestoration" in history) {
     history.scrollRestoration = "manual";
@@ -31,7 +52,7 @@ const syncThemeUi = (theme) => {
     });
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = isDark ? "#0d1218" : "#f4f6f9";
-    const logoSrc = isDark ? "logo-mark-dark.svg" : "logo-mark-light.svg";
+    const logoSrc = isDark ? "/logo-mark-dark.svg" : "/logo-mark-light.svg";
     document.querySelectorAll(".logo-mark").forEach((img) => {
         const current = img.getAttribute("src") || "";
         if (!current.endsWith(logoSrc)) img.setAttribute("src", logoSrc);
@@ -65,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const publicMail = ["contact.tiooex", "gmail.com"].join("@");
     document.querySelectorAll(".footer-mail").forEach((link) => {
-        const preferContact = link.getAttribute("href") === "contact.html";
+        const preferContact = link.getAttribute("href") === "contact";
         if (!preferContact) {
             link.textContent = publicMail;
             link.href = "mailto:" + publicMail;
@@ -77,22 +98,22 @@ document.addEventListener("DOMContentLoaded", () => {
         modernise: {
             kicker: "Engineering workflow",
             line: "Landing zone → migration wave → rollback point → release gate → run-state dashboard",
-            href: "products.html#cloud"
+            href: "products#cloud"
         },
         commerce: {
             kicker: "Commerce workflow",
             line: "Catalog → stock sync → cart → POS sale → fulfilment → reconciliation report",
-            href: "platforms.html#commerce"
+            href: "platforms#commerce"
         },
         mobility: {
             kicker: "Mobility workflow",
             line: "Connected fault → triage → dispatch → workshop job → field update → fleet closure",
-            href: "platforms.html#mobility"
+            href: "platforms#mobility"
         },
         audit: {
             kicker: "Regulated workflow",
             line: "Decision → data lineage → model assist → human review → security gate → audit log",
-            href: "products.html#data-ai"
+            href: "products#data-ai"
         }
     };
     const useCards = [...document.querySelectorAll(".use-card[data-use]")];
@@ -153,14 +174,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const promoBar = document.querySelector(".promo-bar");
     let lastFocus = null;
 
-    const file = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
-    const home = file === "" || file === "index.html";
+    const pathParts = window.location.pathname.replace(/\/+$/, "").split("/").filter(Boolean);
+    const pageSlug = (pathParts.length ? pathParts[pathParts.length - 1] : "")
+        .replace(/\.html$/i, "")
+        .toLowerCase();
+    const home = pageSlug === "" || pageSlug === "index";
+    const normalizeNavHref = (href) => {
+        const path = (href || "").split("#")[0].split("?")[0].replace(/\/+$/, "");
+        if (!path || path === "/") return "home";
+        const slug = (path.split("/").filter(Boolean).pop() || "").replace(/\.html$/i, "");
+        return slug.toLowerCase();
+    };
     document.querySelectorAll(".nav-links a, .mobile-panel a").forEach((link) => {
         const href = link.getAttribute("href") || "";
         if (href.includes("#")) return;
-        const raw = (href.split("#")[0].split("/").pop() || "index.html").toLowerCase();
-        const linkHome = raw === "" || raw === "index.html";
-        if ((linkHome && home) || raw === file) link.setAttribute("aria-current", "page");
+        const linkSlug = normalizeNavHref(href);
+        if ((linkSlug === "home" && home) || linkSlug === pageSlug) link.setAttribute("aria-current", "page");
     });
 
     const handleScroll = () => {
@@ -625,11 +654,11 @@ document.addEventListener("DOMContentLoaded", () => {
         actions.className = "detail-actions";
         const mail = document.createElement("a");
         mail.className = "btn btn-primary";
-        mail.href = "contact.html?need=" + encodeURIComponent(cap.name) + "&interest=" + encodeURIComponent(cap.name);
+        mail.href = "contact?need=" + encodeURIComponent(cap.name) + "&interest=" + encodeURIComponent(cap.name);
         mail.textContent = "Discuss this scope";
         const more = document.createElement("a");
         more.className = "btn btn-secondary";
-        more.href = "services.html";
+        more.href = "services";
         more.textContent = "See industries";
         actions.append(mail, more);
         node.append(head, outcome, summary, listBlock("What the work includes", cap.includes), fits, start, actions);
@@ -686,7 +715,7 @@ document.addEventListener("DOMContentLoaded", () => {
         actions.className = "detail-actions";
         const contact = document.createElement("a");
         contact.className = "btn btn-primary";
-        contact.href = "contact.html?need=" + encodeURIComponent(article.kicker || "Insight");
+        contact.href = "contact?need=" + encodeURIComponent(article.kicker || "Insight");
         contact.textContent = "Talk about this";
         contact.addEventListener("click", closeOverlay);
         actions.appendChild(contact);
@@ -726,32 +755,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const paletteItems = () => {
         const pages = [
-            ["Home", "index.html"],
-            ["Capabilities", "products.html"],
-            ["Platforms", "platforms.html"],
-            ["Industries", "services.html"],
-            ["Insights", "blogs.html"],
-            ["Contact", "contact.html"],
-            ["About", "about.html"],
-            ["Engagement models", "index.html#engagement"]
+            ["Home", "/"],
+            ["Capabilities", "products"],
+            ["Platforms", "platforms"],
+            ["Industries", "services"],
+            ["Insights", "blogs"],
+            ["Contact", "contact"],
+            ["About", "about"],
+            ["Engagement models", "/#engagement"]
         ].map(([label, href]) => ({ label, href, group: "Pages" }));
         const caps = data.capabilities.map((cap) => ({
             label: cap.name,
-            href: `products.html#${cap.id}`,
+            href: `products#${cap.id}`,
             group: "Capabilities",
             id: cap.id,
             kind: "cap"
         }));
         const articles = data.articles.map((article) => ({
             label: article.title,
-            href: `blogs.html#${article.id}`,
+            href: `blogs#${article.id}`,
             group: "Insights",
             id: article.id,
             kind: "article"
         }));
         const industries = data.industries.map((industry) => ({
             label: industry.name,
-            href: `services.html#${industry.id}`,
+            href: `services#${industry.id}`,
             group: "Industries"
         }));
         return [...pages, ...caps, ...articles, ...industries];
@@ -960,7 +989,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (note) note.textContent = active.dataset.note || "";
             if (more) {
                 const label = active.textContent.trim();
-                more.href = active.dataset.href || "services.html";
+                more.href = active.dataset.href || "services";
                 more.textContent = "View " + label + " on Industries";
             }
             if (stageEl) {
