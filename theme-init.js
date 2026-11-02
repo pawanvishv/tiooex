@@ -3,7 +3,7 @@
     const root = document.documentElement;
     let theme = localStorage.getItem(STORAGE_KEY);
     if (theme !== "light" && theme !== "dark") {
-        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        theme = "light";
     }
     root.setAttribute("data-theme", theme);
 })();

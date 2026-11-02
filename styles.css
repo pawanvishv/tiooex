@@ -1660,7 +1660,13 @@ body{background:var(--surface-2);color:var(--ink)}
     background:#8fd4ff;transform:scaleX(0);transform-origin:0 50%;
 }
 .promo-bar.is-hidden{transform:translateY(-100%)}
-.logo-mark{width:22px;height:22px;flex:none}
+.logo-mark{
+    width:30px;
+    height:30px;
+    flex:none;
+    display:block;
+    object-fit:contain;
+}
 .nav-search{
     display:inline-flex;align-items:center;gap:10px;
     padding:8px 12px;border-radius:999px;
@@ -3597,7 +3603,7 @@ body.has-promo .site-nav--unified{top:var(--promo-height)}
 .page-home .site-nav--unified{top:0}
 .nav-shell{max-width:1200px;margin:0 auto;padding:0 20px}
 .site-nav--unified .brand{
-    font-size:18px;font-weight:800;letter-spacing:.06em;text-transform:none;gap:10px;
+    font-size:18px;font-weight:700;letter-spacing:-.02em;text-transform:none;gap:10px;
 }
 .site-nav--unified .brand span{color:var(--ink)}
 .site-nav--unified .nav-links{
@@ -4046,7 +4052,7 @@ body.has-promo .site-nav--unified{top:var(--promo-height)}
     gap:32px 40px;padding:48px 0 24px;
 }
 .footer-brand-block .footer-lead{max-width:36em;font-size:15px}
-.site-footer--unified .footer-brand{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:800;letter-spacing:.06em;text-transform:none;color:var(--ink);margin-bottom:12px}
+.site-footer--unified .footer-brand{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:700;letter-spacing:-.02em;text-transform:none;color:var(--ink);margin-bottom:12px}
 .site-footer--unified .footer-brand span{color:var(--ink)}
 .footer-copy{margin-top:10px;font-size:12px;color:var(--ink-muted);font-style:normal}
 .site-footer--unified .footer-bottom{

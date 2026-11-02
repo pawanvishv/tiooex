@@ -1,12 +1,12 @@
 (function () {
-    const logoSvg =
-        '<svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2" fill="currentColor"/><rect x="18" y="2" width="12" height="12" rx="2" fill="currentColor" opacity=".45"/><rect x="2" y="18" width="12" height="12" rx="2" fill="currentColor" opacity=".45"/><rect x="18" y="18" width="12" height="12" rx="2" fill="#087E8B"/></svg>';
+    const logoImg =
+        '<img class="logo-mark" src="logo-mark.svg" width="30" height="30" alt="" decoding="async">';
 
     const navHtml = `
 <nav class="site-nav site-nav--unified" id="site-nav">
     <div class="nav-shell">
         <div class="nav-wrap">
-            <a href="index.html" class="brand">${logoSvg}<span>Tiooex</span></a>
+            <a href="index.html" class="brand">${logoImg}<span>Tiooex</span></a>
             <div class="nav-links" role="navigation" aria-label="Primary">
                 <a href="products.html">Capabilities</a>
                 <a href="platforms.html">Platforms</a>
@@ -47,7 +47,7 @@
 <footer class="site-footer site-footer--unified" id="site-footer">
     <div class="footer-main">
         <div class="footer-brand-block">
-            <a href="index.html" class="footer-brand">${logoSvg}<span>Tiooex</span></a>
+            <a href="index.html" class="footer-brand">${logoImg}<span>Tiooex</span></a>
             <p class="footer-lead">Build, modernise and run the systems your business depends on — secure platforms, connected workflows, and engineering delivery from Bangalore.</p>
         </div>
         <nav class="footer-links" aria-label="Explore">
