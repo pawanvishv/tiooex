@@ -1,5 +1,22 @@
 document.documentElement.classList.add("js");
 
+if (typeof history !== "undefined" && "scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+}
+
+const scrollPageTopUnlessHash = () => {
+    if (window.location.hash) return;
+    window.scrollTo(0, 0);
+};
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", scrollPageTopUnlessHash, { once: true });
+} else {
+    scrollPageTopUnlessHash();
+}
+window.addEventListener("pageshow", (event) => {
+    if (!window.location.hash && event.persisted) window.scrollTo(0, 0);
+});
+
 const TIOOEX_THEME_KEY = "tiooex-theme";
 
 const syncThemeUi = (theme) => {
@@ -925,7 +942,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sectorButtons = sectorRoot ? [...sectorRoot.querySelectorAll("[data-pick]")] : [];
     if (sectorButtons.length) {
         const stageEl = sectorRoot.querySelector(".sector-stage");
-        const showSector = (id) => {
+        const showSector = (id, { scrollChip = false } = {}) => {
             const active = sectorButtons.find((button) => button.dataset.pick === id) || sectorButtons[0];
             sectorButtons.forEach((button) => {
                 const on = button === active;
@@ -946,12 +963,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 void stageEl.offsetWidth;
                 stageEl.classList.add("is-updating");
             }
-            if (active.scrollIntoView && window.matchMedia("(max-width: 900px)").matches) {
+            if (
+                scrollChip &&
+                active.scrollIntoView &&
+                window.matchMedia("(max-width: 900px)").matches
+            ) {
                 active.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
             }
         };
         sectorButtons.forEach((button) => {
-            button.addEventListener("click", () => showSector(button.dataset.pick));
+            button.addEventListener("click", () => showSector(button.dataset.pick, { scrollChip: true }));
         });
         const current = sectorButtons.find((button) => button.getAttribute("aria-pressed") === "true") || sectorButtons[0];
         showSector(current.dataset.pick);
@@ -987,5 +1008,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 status.textContent = "Your email app should open to confirm. We only use this address to reply.";
             }
         });
+    });
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(scrollPageTopUnlessHash);
     });
 });

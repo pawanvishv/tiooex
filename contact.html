@@ -38,23 +38,24 @@
             </div>
         </section>
 
-        <section class="section-block text-center site-pad-x" id="contact">
-            <header class="seg-head seg-head-center site-wrap site-wrap--narrow site-wrap--head">
+        <section class="section-block page-contact__section" id="contact">
+            <div class="contact-layout site-wrap">
+            <header class="seg-head seg-head-center contact-head">
                 <h2>Send an enquiry</h2>
                 <p class="section-lead">We route project, demo, and partnership messages to the right team.</p>
             </header>
             <div class="inquiry reveal">
-                <div>
-                    <h2 class="section-title" style="font-size:clamp(28px,3vw,36px);margin-bottom:12px">Three ways to reach us</h2>
-                    <ul class="swap-points" style="margin-top:16px">
+                <div class="inquiry-aside">
+                    <h3 class="contact-aside-title">Three ways to reach us</h3>
+                    <ul class="swap-points contact-aside-points">
                         <li><strong>Discuss a project</strong> — custom engineering, modernisation, or integration work</li>
                         <li><strong>Request a platform demo</strong> — Commerce, Mobility, or Banking &amp; Insurance workflows</li>
                         <li><strong>Partnership enquiry</strong> — co-delivery, ISV, or ecosystem collaboration</li>
                     </ul>
-                    <p class="form-note" style="margin-top:20px">Bangalore, Karnataka 560066 · India</p>
+                    <p class="form-note contact-location">Bangalore, Karnataka 560066 · India</p>
                 </div>
                 <form id="inquiry-form" class="inquiry-form" novalidate>
-                    <div id="form-errors" class="empty-note" role="alert" hidden></div>
+                    <div id="form-errors" class="form-errors empty-note" role="alert" hidden></div>
                     <label class="field">
                         <span>Enquiry type <em>(required)</em></span>
                         <select name="route" id="field-route" required>
@@ -106,14 +107,15 @@
                         <span>Message</span>
                         <textarea name="message" rows="5" maxlength="4000" placeholder="Workflow, system, timeline, or constraint we should know about"></textarea>
                     </label>
-                    <label class="field" style="flex-direction:row;align-items:flex-start;gap:10px">
-                        <input name="consent" type="checkbox" required style="width:auto;margin-top:4px">
+                    <label class="field field--consent">
+                        <input name="consent" type="checkbox" required>
                         <span>I agree that Tiooex may use this information to respond to my enquiry. See our privacy notice on request.</span>
                     </label>
                     <button type="submit" class="btn btn-primary">Send enquiry</button>
                     <p id="inquiry-status" class="form-status" hidden role="status"></p>
                     <p class="form-note">Submitting opens your email app with a pre-filled message. A server-side form endpoint can replace this when your team is ready.</p>
                 </form>
+            </div>
             </div>
         </section>
     </main>
