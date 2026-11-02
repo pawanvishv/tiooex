@@ -3,10 +3,88 @@ document.documentElement.classList.add("js");
 document.addEventListener("DOMContentLoaded", () => {
     const publicMail = ["contact.tiooex", "gmail.com"].join("@");
     document.querySelectorAll(".footer-mail").forEach((link) => {
-        link.textContent = publicMail;
-        link.href = "mailto:" + publicMail;
+        const preferContact = link.getAttribute("href") === "contact.html";
+        if (!preferContact) {
+            link.textContent = publicMail;
+            link.href = "mailto:" + publicMail;
+        }
     });
-    const data = window.TIOOEX || { capabilities: [], articles: [], industries: [] };
+    const data = window.TIOOEX || { capabilities: [], articles: [], industries: [], clients: [] };
+
+    const useStages = {
+        modernise: {
+            kicker: "Engineering workflow",
+            line: "Landing zone → migration wave → rollback point → release gate → run-state dashboard",
+            href: "products.html#cloud"
+        },
+        commerce: {
+            kicker: "Commerce workflow",
+            line: "Catalog → stock sync → cart → POS sale → fulfilment → reconciliation report",
+            href: "platforms.html#commerce"
+        },
+        mobility: {
+            kicker: "Mobility workflow",
+            line: "Connected fault → triage → dispatch → workshop job → field update → fleet closure",
+            href: "platforms.html#mobility"
+        },
+        audit: {
+            kicker: "Regulated workflow",
+            line: "Decision → data lineage → model assist → human review → security gate → audit log",
+            href: "products.html#data-ai"
+        }
+    };
+    const useCards = [...document.querySelectorAll(".use-card[data-use]")];
+    const useLine = document.getElementById("use-stage-line");
+    const useKicker = document.getElementById("use-stage-kicker");
+    const useLink = document.getElementById("use-stage-link");
+    const pickUse = (id) => {
+        const stage = useStages[id];
+        if (!stage) return;
+        useCards.forEach((card) => {
+            const on = card.dataset.use === id;
+            card.classList.toggle("is-active", on);
+            card.setAttribute("aria-pressed", on ? "true" : "false");
+        });
+        if (useKicker) useKicker.textContent = stage.kicker;
+        if (useLine) useLine.textContent = stage.line;
+        if (useLink) {
+            useLink.href = stage.href;
+            useLink.textContent = "Explore " + stage.kicker.toLowerCase();
+        }
+    };
+    useCards.forEach((card) => {
+        card.addEventListener("click", () => pickUse(card.dataset.use));
+        card.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                pickUse(card.dataset.use);
+            }
+        });
+    });
+    if (useCards.length) pickUse(useCards.find((c) => c.classList.contains("is-active"))?.dataset.use || useCards[0].dataset.use);
+
+    const outcomeChips = [...document.querySelectorAll(".outcome-chip[data-outcome]")];
+    const outcomePreview = document.getElementById("outcome-preview");
+    outcomeChips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+            outcomeChips.forEach((peer) => {
+                const on = peer === chip;
+                peer.classList.toggle("is-active", on);
+                peer.setAttribute("aria-pressed", on ? "true" : "false");
+            });
+            if (outcomePreview) outcomePreview.textContent = chip.dataset.outcome || "";
+        });
+    });
+
+    document.querySelectorAll(".post-hero-jump a").forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const target = document.querySelector(link.getAttribute("href"));
+            if (!target) return;
+            event.preventDefault();
+            target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+        });
+    });
+
     const nav = document.getElementById("site-nav");
     const toggle = document.getElementById("mobile-toggle");
     const panel = document.getElementById("mobile-panel");
@@ -28,9 +106,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (promoBar) {
             const hide = window.scrollY > 48;
             promoBar.classList.toggle("is-hidden", hide);
-            if (nav) {
+            document.body.classList.toggle("promo-hidden", hide);
+            if (nav && !nav.classList.contains("site-nav--unified")) {
                 nav.style.top = hide ? "0" : "";
                 nav.style.setProperty("--nav-bottom", hide ? "64px" : "102px");
+            } else if (nav) {
+                nav.style.removeProperty("top");
             }
             document.documentElement.style.setProperty("--sticky-top", hide ? "76px" : "110px");
         }
@@ -70,31 +151,58 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.querySelectorAll(".mobile-panel a").forEach((link) => {
-        link.addEventListener("click", (event) => {
-            if (!panel || !toggle) return;
-            const href = link.getAttribute("href") || "";
-            if (href.startsWith("#")) {
-                closeMenu();
-                return;
-            }
-            event.preventDefault();
-            window.location.assign(link.href);
+        link.addEventListener("click", () => {
+            closeMenu();
         });
     });
 
     const revealItems = document.querySelectorAll(".reveal");
+    let revealObserver = null;
     if ("IntersectionObserver" in window) {
-        const revealObserver = new IntersectionObserver((entries) => {
+        revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12 });
+        }, { threshold: 0.08, rootMargin: "0px 0px -4% 0px" });
         revealItems.forEach((el) => revealObserver.observe(el));
     } else {
         revealItems.forEach((el) => el.classList.add("visible"));
+    }
+
+    const clientWall = document.getElementById("client-wall");
+    if (clientWall && data.clients.length) {
+        data.clients.forEach((client, index) => {
+            const card = document.createElement("article");
+            card.className = "client-card reveal";
+            card.style.transitionDelay = `${Math.min(index * 70, 420)}ms`;
+            if (client.logo) {
+                const img = document.createElement("img");
+                img.src = client.logo;
+                img.alt = `${client.name} logo`;
+                img.width = 120;
+                img.height = 40;
+                img.loading = "lazy";
+                const sector = document.createElement("span");
+                sector.className = "client-sector";
+                sector.textContent = client.sector;
+                card.append(img, sector);
+            } else {
+                const sector = document.createElement("span");
+                sector.className = "client-sector";
+                sector.textContent = client.sector;
+                const title = document.createElement("strong");
+                title.textContent = client.name;
+                const summary = document.createElement("p");
+                summary.textContent = client.summary;
+                card.append(sector, title, summary);
+            }
+            clientWall.appendChild(card);
+            if (revealObserver) revealObserver.observe(card);
+            else card.classList.add("visible");
+        });
     }
 
     const jump = document.querySelector(".jumpbar");
@@ -256,14 +364,40 @@ document.addEventListener("DOMContentLoaded", () => {
     const capEmpty = document.getElementById("cap-empty");
     let capGroup = "all";
 
+    const capSynonyms = {
+        cloud: ["infrastructure", "migration", "devops", "aws", "azure"],
+        cybersecurity: ["security", "risk", "compliance", "audit"],
+        "data-ai": ["analytics", "machine learning", "ml", "ai", "data"],
+        "digital-engineering": ["software", "development", "modernisation", "modernization"],
+        "supply-chain": ["logistics", "inventory", "fulfillment", "fulfilment"],
+        sales: ["commerce", "retail", "pos", "ecommerce"],
+        infrastructure: ["cloud", "hosting", "network"],
+        emerging: ["innovation", "pilot", "prototype"],
+        "finance-risk": ["finance", "reporting", "control"],
+        "customer-service": ["support", "contact center", "cx"],
+        marketing: ["campaign", "journey", "experience"],
+        strategy: ["operating model", "transformation"],
+        learning: ["training", "adoption"],
+        talent: ["organization", "organisation", "workforce"],
+        ecosystem: ["partner", "integration", "vendor"]
+    };
+
+    const capMatchesQuery = (card, query) => {
+        if (!query) return true;
+        const blob = card.textContent.toLowerCase();
+        if (blob.includes(query)) return true;
+        const id = card.dataset.cap || "";
+        const extras = capSynonyms[id] || [];
+        return extras.some((term) => term.includes(query) || query.includes(term));
+    };
+
     const applyCapFilter = () => {
         if (!capCards.length) return;
         const query = (capSearch ? capSearch.value : "").trim().toLowerCase();
         let shown = 0;
         capCards.forEach((card) => {
-            const blob = card.textContent.toLowerCase();
             const groupOk = capGroup === "all" || card.dataset.group === capGroup;
-            const show = groupOk && (!query || blob.includes(query));
+            const show = groupOk && capMatchesQuery(card, query);
             card.classList.toggle("is-filtered-out", !show);
             if (show) shown += 1;
         });
@@ -275,11 +409,27 @@ document.addEventListener("DOMContentLoaded", () => {
         if (capEmpty) capEmpty.hidden = shown !== 0;
     };
 
+    const resetCapFilters = () => {
+        capGroup = "all";
+        if (capSearch) capSearch.value = "";
+        if (capFilters) {
+            capFilters.querySelectorAll("[data-group]").forEach((button) => {
+                const on = button.dataset.group === "all";
+                button.classList.toggle("active", on);
+                button.setAttribute("aria-pressed", on ? "true" : "false");
+            });
+        }
+        applyCapFilter();
+        if (capSearch) capSearch.focus();
+    };
+
     if (capSearch) capSearch.addEventListener("input", applyCapFilter);
     if (capFilters) {
         capFilters.querySelectorAll("[data-group]").forEach((button) => {
             button.addEventListener("click", () => {
-                capGroup = button.dataset.group;
+                const group = button.dataset.group;
+                if (!group) return;
+                capGroup = group;
                 capFilters.querySelectorAll("[data-group]").forEach((peer) => {
                     const on = peer === button;
                     peer.classList.toggle("active", on);
@@ -290,6 +440,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     applyCapFilter();
+
+    const capReset = document.getElementById("cap-reset");
+    if (capReset) {
+        capReset.addEventListener("click", (event) => {
+            event.stopPropagation();
+            resetCapFilters();
+        });
+    }
 
     const overlay = document.createElement("div");
     overlay.className = "overlay";
@@ -377,7 +535,7 @@ document.addEventListener("DOMContentLoaded", () => {
         actions.className = "detail-actions";
         const mail = document.createElement("a");
         mail.className = "btn btn-primary";
-        mail.href = "mailto:" + publicMail + "?subject=" + encodeURIComponent("Scope inquiry — " + cap.name);
+        mail.href = "contact.html?need=" + encodeURIComponent(cap.name) + "&interest=" + encodeURIComponent(cap.name);
         mail.textContent = "Discuss this scope";
         const more = document.createElement("a");
         more.className = "btn btn-secondary";
@@ -438,7 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
         actions.className = "detail-actions";
         const contact = document.createElement("a");
         contact.className = "btn btn-primary";
-        contact.href = "index.html#site-footer";
+        contact.href = "contact.html?need=" + encodeURIComponent(article.kicker || "Insight");
         contact.textContent = "Talk about this";
         contact.addEventListener("click", closeOverlay);
         actions.appendChild(contact);
@@ -483,7 +641,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ["Platforms", "platforms.html"],
             ["Industries", "services.html"],
             ["Insights", "blogs.html"],
-            ["Contact", "index.html#site-footer"],
+            ["Contact", "contact.html"],
+            ["About", "about.html"],
             ["Engagement models", "index.html#engagement"]
         ].map(([label, href]) => ({ label, href, group: "Pages" }));
         const caps = data.capabilities.map((cap) => ({
@@ -611,30 +770,88 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const inquiry = document.getElementById("inquiry-form");
     if (inquiry) {
+        const params = new URLSearchParams(window.location.search);
+        const routeField = inquiry.querySelector('[name="route"]');
+        const needField = inquiry.querySelector('[name="need"]');
+        if (routeField && params.get("route")) routeField.value = params.get("route");
+        if (needField) {
+            const rawInterest = params.get("need") || params.get("interest") || params.get("industry");
+            const interest = rawInterest ? decodeURIComponent(String(rawInterest).replace(/\+/g, " ")).trim() : "";
+            if (interest) {
+                let matched = false;
+                [...needField.options].forEach((opt) => {
+                    if (opt.value.toLowerCase() === interest.toLowerCase()) {
+                        needField.value = opt.value;
+                        matched = true;
+                    }
+                });
+                if (!matched) {
+                    const custom = document.createElement("option");
+                    custom.value = interest;
+                    custom.textContent = interest;
+                    needField.appendChild(custom);
+                    needField.value = interest;
+                }
+            }
+        }
+
         inquiry.addEventListener("submit", (event) => {
             event.preventDefault();
             const form = new FormData(inquiry);
+            const errors = [];
             const name = String(form.get("name") || "").trim();
             const email = String(form.get("email") || "").trim();
             const org = String(form.get("organization") || "").trim();
+            const route = String(form.get("route") || "project");
             const need = String(form.get("need") || "").trim();
+            const stage = String(form.get("stage") || "").trim();
+            const role = String(form.get("role") || "").trim();
             const message = String(form.get("message") || "").trim();
+            const consent = form.get("consent");
+            const errorBox = document.getElementById("form-errors");
+
+            if (!name) errors.push("Enter your name.");
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push("Enter a valid work email.");
+            if (!org) errors.push("Enter your company name.");
+            if (!consent) errors.push("Confirm consent so we can respond to your enquiry.");
+
+            if (errors.length) {
+                if (errorBox) {
+                    errorBox.hidden = false;
+                    errorBox.textContent = errors.join(" ");
+                }
+                return;
+            }
+            if (errorBox) errorBox.hidden = true;
+
+            const routeLabel = { project: "Discuss a project", demo: "Platform demo", partnership: "Partnership" }[route] || route;
             const body = [
+                `Enquiry type: ${routeLabel}`,
                 `Name: ${name}`,
                 `Email: ${email}`,
-                `Organization: ${org || "—"}`,
-                `Need: ${need}`,
+                `Company: ${org}`,
+                `Role: ${role || "—"}`,
+                `Interest: ${need}`,
+                `Stage: ${stage || "—"}`,
                 "",
                 message || "No additional note."
             ].join("\n");
-            window.location.href = "mailto:" + publicMail + "?subject=" + encodeURIComponent("Enterprise inquiry — " + need) + "&body=" + encodeURIComponent(body);
+            window.location.href = "mailto:" + publicMail + "?subject=" + encodeURIComponent(`${routeLabel} — ${need}`) + "&body=" + encodeURIComponent(body);
             const status = document.getElementById("inquiry-status");
             if (status) {
                 status.hidden = false;
-                status.textContent = "Your email app should open with this inquiry. If it does not, write to " + publicMail + ".";
+                status.textContent = "Your email app should open with this enquiry. If it does not, write to " + publicMail + ".";
             }
         });
     }
+
+    document.querySelectorAll("[data-track]").forEach((el) => {
+        el.addEventListener("click", () => {
+            if (typeof window.gtag === "function") {
+                window.gtag("event", el.dataset.track, { page_path: window.location.pathname });
+            }
+        });
+    });
 
     const sceneButtons = [...document.querySelectorAll("[data-pick]")];
     if (sceneButtons.length) {
@@ -652,9 +869,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const active = sceneButtons.find((button) => button.dataset.pick === id);
             if (line && active) line.textContent = active.dataset.line || "";
             if (note && active) note.textContent = active.dataset.note || "";
-            if (more && active && active.dataset.href) {
-                more.href = active.dataset.href;
-                more.textContent = "Open " + active.textContent.trim();
+            if (more && active) {
+                const label = active.textContent.trim();
+                more.href = "contact.html?industry=" + encodeURIComponent(label);
+                more.textContent = "Discuss " + label + " workflow";
             }
             if (active && active.parentElement) {
                 const list = active.parentElement;
@@ -692,7 +910,8 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         const startScenes = () => {
             clearInterval(timer);
-            timer = setInterval(advance, 3200);
+            const interval = document.body.classList.contains("page-home") ? 5200 : 3200;
+            timer = setInterval(advance, interval);
         };
         sceneButtons.forEach((button) => {
             button.addEventListener("click", () => {

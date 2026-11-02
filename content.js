@@ -241,6 +241,38 @@ window.TIOOEX = {
             ]
         }
     ],
+    clients: [
+        {
+            name: "National retail group",
+            sector: "Retail & commerce",
+            summary: "Connected e-commerce, POS, and inventory with a single stock truth."
+        },
+        {
+            name: "Mobility operator",
+            sector: "Automotive & mobility",
+            summary: "Fault-to-workshop workflow across fleet, field, and service records."
+        },
+        {
+            name: "Regional bank",
+            sector: "Banking",
+            summary: "Customer journey and control evidence on one path to release."
+        },
+        {
+            name: "Insurance program",
+            sector: "Insurance",
+            summary: "Claim queue automation with audit-ready handoffs between teams."
+        },
+        {
+            name: "Industrial manufacturer",
+            sector: "Industrial & energy",
+            summary: "Plan-to-fulfil visibility for one product family and supplier set."
+        },
+        {
+            name: "Growth-stage SaaS",
+            sector: "Technology",
+            summary: "Platform modernisation with release gates and cloud landing zone."
+        }
+    ],
     industries: [
         { id: "automotive", name: "Automotive" },
         { id: "banking", name: "Banking" },

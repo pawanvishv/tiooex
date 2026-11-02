@@ -1,0 +1,953 @@
+TIOOEX  /  DIGITAL EXPERIENCE & GROWTH
+
+# Website Research, Audit
+& Implementation Specification
+
+Expanded review of tiooex.in, the previous audit document, Parallel.ai and current B2B website practices
+2 November 2026
+
+Version 3 — replaces and expands the earlier Website Audit & Improvement Roadmap and Professional Website Audit & Redesign Blueprint.
+
+Primary objective: turn Tiooex into a premium, credible, easy-to-evaluate enterprise technology website that generates qualified enquiries without overstating capabilities.
+
+# 1. Executive recommendation
+
+The previous audit correctly identified broad positioning, limited proof, unclear product maturity, insufficient service detail and a weakly evidenced conversion path. After reviewing the actual live page content and the previous document, the recommendations can now be more specific.
+
+Tiooex has a stronger editorial foundation than a generic IT services brochure: its homepage describes delivery constraints, rollback points, data ownership, human review and security release gates. Its platform pages describe operational workflows. Preserve that differentiated, problem-led voice. The main weakness is that the visitor is not yet shown enough evidence, product UI, team credibility, detailed scope or a frictionless next step.
+
+Recommended direction: a calm, premium enterprise design with real product demonstrations, concise positioning, use-case-led navigation, clear evidence and layered calls to action. Use Parallel.ai as a benchmark for how to explain a complex technology proposition—not as a design to copy.
+
+Priority: fix the buyer journey and content architecture first; then add product evidence and case studies; then polish visual design, SEO and technical quality.
+
+# 2. Review scope, accuracy and limitations
+
+- Previous files reviewed: Tiooex_Website_Audit_and_Improvement_Roadmap.docx and Tiooex_Professional_Website_Audit_and_Redesign_Blueprint.docx.
+
+- Live pages successfully reviewed: Home, Capabilities (/products.html), Platforms (/platforms.html), Industries (/services.html) and Insights (/blogs.html).
+
+- Home currently exposes the navigation items Capabilities, Platforms, Industries, Insights and Contact. Its live text includes the headline “Reliable Technology For Business”, three capability themes, nine sector selectors, four engagement models and three featured notes.
+
+- Capabilities currently lists 16 scopes, search and category filters, plus View scope controls.
+
+- Platforms currently presents Commerce, Mobility software, Banking and insurance, and Tiooex Play, each with a problem/workflow narrative.
+
+- Industries currently presents nine sectors with short problem-led descriptions.
+
+- Insights currently lists six short notes, says they are working perspectives rather than client results, and has category filters and Read the note controls.
+
+- The live text extraction did not expose the internal behaviour of View scope, Read the note, sector selectors or the Contact destination. Treat these as interaction tests required—not as confirmed broken controls.
+
+- No authenticated area, code repository, CMS, analytics, Search Console, server logs, form inbox, device lab or Lighthouse/PageSpeed report was available. This report therefore does not claim measured load time, SEO rank, security vulnerabilities or form delivery failure.
+
+- Parallel.ai was reviewed as a public design/storytelling reference. Its current page combines an interactive product entry point, customer proof, use-case examples, product playgrounds, output comparison, trust framework, product suite and benchmarks.
+
+# 3. What the previous document missed or should be corrected
+
+| Earlier recommendation | Refined conclusion / correction |
+| --- | --- |
+| “Contact page may not exist” | The Contact navigation is visible, but the public text extraction does not prove its destination. Verify whether it opens a mail client, anchor, modal or dedicated page. For a B2B site, create a dedicated Contact / Start a project page regardless. |
+| “Insights Read the note may be broken” | The buttons are present but their destinations are not exposed in the text extraction. Test each button in a real browser and keyboard flow. If they open an inline panel, make the full content indexable or provide article URLs. |
+| “View scope should open details” | The capability cards show View scope buttons, but the audit must inspect whether they open a modal, accordion or route. Prefer dedicated crawlable service pages; if a modal remains, support deep links, keyboard focus and mobile accessibility. |
+| “Add more pages” | Do not expand all 16 scopes into separate pages immediately. First consolidate to 5–7 clear service lines, then publish detail pages for the revenue-priority services. |
+| “Add case studies” | If Tiooex cannot publish verified client work, create clearly labelled reference implementations or product walkthroughs. Never present a concept as a client result. |
+| “Parallel-style site” | Borrow the principles—clear hero, product proof, use-case demonstration, customer evidence, trust and technical depth. Do not copy Parallel's brand, exact layout, wording, colours or product interactions. |
+
+# 4. Benchmark: what Parallel.ai does well and what Tiooex should adapt
+
+| Parallel.ai pattern observed | Tiooex adaptation |
+| --- | --- |
+| Short positioning statement and clear “Start building” action near the top. | A direct enterprise value proposition plus “Discuss a project” and “Explore platforms” actions. |
+| Interactive product playground and visible example inputs. | Show real Tiooex product screens or an interactive, clearly labelled demo workflow; do not invent live functionality. |
+| Use cases described as jobs to be done, each with example queries and Try actions. | Show industry workflows such as order-to-fulfilment, vehicle fault-to-workshop closure and claim-to-resolution, each with a demo or walkthrough. |
+| Customer logos and case-study links. | Use approved client logos, named references or anonymised project evidence. If none are available, omit the trust strip rather than fabricate it. |
+| Before/after comparison explaining why the product is better. | Show the current operational process versus the proposed Tiooex workflow with specific, defensible differences. |
+| Trust framework and enterprise security information. | Publish actual security practices, access controls, hosting options, data handling and certifications only where confirmed. |
+| A product suite with separate pages, docs and playgrounds. | Create a dedicated page for each active Tiooex platform, with feature detail, integrations, architecture overview, demo and FAQs. |
+| Benchmarks with datasets and methodology. | Only publish measured performance or business outcome benchmarks with test conditions, date, sample size and methodology. Otherwise do not create a fake metric section. |
+
+Parallel's live page provides a particularly useful sequence: hero → product interaction → proof → use cases → comparison → trust → products → benchmarks → start building. Tiooex should use a comparable buyer journey, adjusted for an enterprise engineering and platform provider. Sources: https://parallel.ai/ and https://parallel.ai/products/search.
+
+# 5. Positioning: decide what Tiooex wants to be known for
+
+Current homepage language—“Reliable Technology For Business” and “Transform operations and accelerate growth across every industry”—is too broad to differentiate the company. The footer also says “robotic machines, telecom, and more”, which conflicts with the more focused cloud/data/security story and should be removed unless these are current, clearly described offerings.
+
+## Recommended positioning statement
+
+Build, modernise and run the systems your business depends on.
+
+Tiooex helps businesses engineer secure digital platforms, connect critical workflows and modernise operations through software engineering, cloud, data and AI.
+
+Suggested CTAs: Primary — “Discuss a project”; Secondary — “Explore platforms”. Use only if this statement accurately reflects current delivery capability.
+
+## Choose three strategic pillars
+
+| Pillar | What belongs here | Buyer outcome |
+| --- | --- | --- |
+| Digital Engineering | Custom software, platform modernisation, integration, APIs, application engineering. | Systems that are easier to change, integrate and scale. |
+| Cloud, Data & AI | Cloud foundations, DevOps, data engineering, analytics, AI/automation, security engineering. | Reliable infrastructure and better operational decisions. |
+| Business Platforms | Commerce, Mobility, Banking & Insurance products/solutions—only those that are active and supportable. | Connected business workflows with a clear operating model. |
+
+Do not present every capability as equally important. Select the 3–5 services that Tiooex can sell and deliver confidently today. Other capabilities can remain as supporting or partner-led offerings if their status is clear.
+
+# 6. Recommended navigation and sitemap
+
+| Top navigation | Recommended subpages / content |
+| --- | --- |
+| Solutions | Digital Modernisation; Enterprise Workflow Automation; Data & AI; Cloud & Security. |
+| Services | Software Engineering; Cloud & DevOps; Data Engineering & AI; Cybersecurity; Integration & Managed Services. |
+| Platforms | Commerce; Mobility; Banking & Insurance. Tiooex Play only if it is an active offering. |
+| Industries | Automotive & Mobility; Retail & Commerce; Banking & Insurance; Industrial & Energy. Add other sectors where there is credible expertise. |
+| Resources | Insights; Case Studies; Guides; Technical Resources (only if maintained). |
+| Company | About Tiooex; Leadership/Team; Delivery Approach; Partners; Careers (if hiring); Contact. |
+
+Keep the top-level menu to approximately five or six items. Use a simple mega-menu only if it improves discovery; avoid a huge menu of all 16 capabilities.
+
+## URL recommendation
+
+- /services/software-engineering/
+
+- /services/cloud-devops/
+
+- /services/data-ai/
+
+- /services/cybersecurity/
+
+- /services/integration-modernisation/
+
+- /platforms/commerce/
+
+- /platforms/mobility/
+
+- /platforms/banking-insurance/
+
+- /industries/automotive/
+
+- /industries/retail/
+
+- /industries/banking-insurance/
+
+- /case-studies/ (or /work/)
+
+- /insights/article-slug/
+
+- /contact/ or /start-a-project/
+
+If URLs change, create a permanent redirect map from every old URL to the most relevant new URL. Keep existing URLs where they are already useful and indexed.
+
+# 7. Page-by-page redesign specification
+
+## 7.1 Home page
+
+Live content observed: the page has a headline, three themes (infrastructure/engineering, data/models, security), nine sector selectors, an automotive workflow example, four engagement models (Advisory, Sprint, Managed, Partnership) and three featured insight notes.
+
+Keep: the specific delivery language around migration rollback, data quality/ownership, human review and release gates. Keep the four engagement shapes, but explain what buyers receive.
+
+Change the hero:
+
+- Use a clear H1 describing the outcome and target buyer, not a broad slogan.
+
+- Use one sentence to explain what Tiooex delivers and how it is different.
+
+- Show a real screenshot, platform preview, workflow diagram or short silent product video on the right side.
+
+- Add a persistent primary CTA and a less-committal secondary CTA.
+
+- Do not claim “across every industry” unless the team can demonstrate capability and proof across all sectors.
+
+### Suggested homepage section order
+
+1. Hero: positioning, supporting sentence, two CTAs, real visual.
+
+1. Trust strip: approved customers, partners, credentials or verified delivery facts. Hide if no evidence exists.
+
+1. Core outcomes: Modernise systems; Connect workflows; Improve operational visibility; Build secure digital products.
+
+1. Featured platforms: Commerce, Mobility, Banking & Insurance, each with actual UI imagery and “Explore platform”.
+
+1. Core services: 4–5 priority service cards, each linked to a detail page.
+
+1. Interactive industry use cases: sector selector changes the workflow, solution and relevant platform—not just a title.
+
+1. How Tiooex delivers: Discover → Define → Build → Integrate → Operate, with outputs at each stage.
+
+1. Selected work: case studies or clearly labelled reference implementations.
+
+1. Insights: 2–3 substantive articles, each linked to a full article page.
+
+1. Engagement models: Advisory, Sprint, Managed, Partnership with outcomes and suitable use cases.
+
+1. Final CTA: Start a project / Book a discovery call.
+
+1. Footer: company, contact, legal, social, service and location information.
+
+### Suggested copy for the three homepage themes
+
+| Theme | Suggested heading | Proof/visual to show |
+| --- | --- | --- |
+| Engineering | Modernise without losing control. | Architecture diagram, migration waves, rollback/release checklist. |
+| Data & AI | Make decisions from data people can trust. | Data lineage, quality checks, human review and sample dashboard. |
+| Security | Build security into the delivery lifecycle. | Identity/access, audit evidence, threat review and release gate. |
+
+## 7.2 Capabilities page
+
+Live page lists 16 scopes: Cloud, Customer Service, Cybersecurity, Data & AI, Digital Engineering, Ecosystem Partners, Emerging Technology, Finance & Risk, Infrastructure, Learning, Marketing, Sales & Commerce, Strategy, Supply Chain, Talent & Organization, and Tech Transformation.
+
+This catalogue is broad for a specialist engineering company. It risks looking like a list of generic consulting services. Group the offer around the actual team and delivery capacity.
+
+| Proposed service line | Merge / map existing scopes |
+| --- | --- |
+| Software & Digital Engineering | Digital Engineering, Tech Transformation, Customer Service, Sales & Commerce (where software delivery is real). |
+| Cloud & Platform Engineering | Cloud, Infrastructure, Ecosystem Partners (with explicit partner-led status). |
+| Data, AI & Automation | Data & AI, Emerging Technology. |
+| Cybersecurity & Risk | Cybersecurity, Finance & Risk (only technology risk/control services that Tiooex can deliver). |
+| Business & Workflow Transformation | Strategy, Supply Chain, Learning, Talent & Organization, Marketing—retain only if they are genuinely offered; otherwise remove or position as partner capabilities. |
+
+Recommended capability page structure:
+
+1. Short intro: what Tiooex does and for whom.
+
+1. 5 core service-line cards, each with a specific outcome and proof visual.
+
+1. Capability detail pages with buyer problem, scope, deliverables, architecture, tech stack, timeline, assumptions, exclusions and FAQs.
+
+1. Related platforms and industries.
+
+1. Case study or reference implementation.
+
+1. CTA contextual to that service.
+
+Interaction requirements: search must work with synonyms; category filters need clear active states; provide a reset button and useful empty state; all controls must work by keyboard; card details should be linkable and readable by search engines. A modal may supplement a page, but should not be the only place important service content exists.
+
+## 7.3 Platforms page and platform detail pages
+
+Live page currently describes four product lines and gives useful workflow explanations. This is a strong starting point. The missing piece is product evidence: visitors need to see the software, understand the modules, know the product status and see how to evaluate it.
+
+| Platform | Recommended product narrative | Demo walkthrough |
+| --- | --- | --- |
+| Commerce | One commerce operation across online store, physical store, POS, inventory and fulfilment. | Product/catalog → stock sync → cart/order → POS sale → fulfilment → return/refund → reporting. |
+| Mobility | Manage vehicles, trips, field work, workshops and service records in one operational workflow. | Asset/vehicle → trip/dispatch → fault/inspection → job assignment → field/workshop update → closure. |
+| Banking & Insurance | Connect customer requests, accounts/policies, cases/claims and control evidence. | Customer onboarding/request → account/policy → claim/case → review/approval → audit trail. |
+| Tiooex Play | Keep only if the company has a real product, target customer, roadmap and team to support it. | Show a real publisher/player/session/purchase workflow only if the product exists and can be demonstrated. |
+
+### Each platform detail page must include
+
+1. Hero: product promise, target users and “Request a demo”.
+
+1. Actual UI screenshots (dashboard, core workflow, reports, mobile/tablet views).
+
+1. Product tour or 60–120 second walkthrough video.
+
+1. Problem → workflow → product modules → outcome.
+
+1. Feature list grouped by user job, not a flat list of features.
+
+1. Integrations: only integrations tested or currently supported; label planned integrations separately.
+
+1. Architecture overview: hosting, tenancy, API model, identity, data storage and backup at an appropriate level.
+
+1. Security and privacy: actual controls, audit logs, roles, encryption and data retention practices.
+
+1. Deployment and onboarding: discovery, configuration, migration, integration, UAT, go-live, training and support.
+
+1. FAQs, release status, support model and demo/contact CTA.
+
+Use a consistent product page layout but give each platform its own colour accent and visual identity within the Tiooex design system. Do not create fake screenshots. If the software is not ready, publish a clearly labelled concept or reference workflow instead.
+
+## 7.4 Industries page
+
+Live page covers Automotive, Banking, Capital markets, Insurance, Retail, Industrial, Energy, Health and Public service. The descriptions are thoughtful but short. The homepage's featured use case is Automotive, so the page should not promise nine deep vertical solutions unless the company has the knowledge and proof.
+
+Prioritise four industries that align to the platform and delivery strengths: Automotive & Mobility, Retail & Commerce, Banking & Insurance, and Industrial & Energy. Keep other industries in a secondary “Additional sectors” section until the content is credible.
+
+### Industry detail page template
+
+1. Industry-specific opening problem and business context.
+
+1. Who the page is for: COO, CIO, CTO, operations leader, product owner, risk/compliance leader.
+
+1. 3–5 common operational challenges.
+
+1. One end-to-end workflow map.
+
+1. Relevant Tiooex platform and service mapping.
+
+1. Typical systems/integrations and data boundaries.
+
+1. Risk, security and regulatory considerations—only where expertise is real.
+
+1. Reference implementation or approved case study.
+
+1. FAQs and industry-specific CTA.
+
+Example: Automotive should show vehicle fault → connected event → triage → workshop assignment → parts/repair → closure → fleet/OEM reporting. This is more persuasive than a general statement about connected vehicles.
+
+## 7.5 Insights and resources
+
+Live page has six short notes and explicitly says they are perspectives, not client results. That transparency is good. The next step is to make them useful, substantive resources.
+
+- Create a full URL for each article with author, publication date, updated date, reading time, summary, headings, diagrams and references.
+
+- Write for a named buyer question: e.g. “How to modernise a legacy commerce platform without disrupting POS operations”.
+
+- Link each article to one relevant service, platform and case study.
+
+- Add a practical asset: checklist, architecture diagram, decision framework or downloadable guide.
+
+- Hide empty category states or show a helpful “Explore all insights” link.
+
+- Publish only at a cadence the team can maintain. Two strong articles each quarter are better than many thin posts.
+
+- Keep the disclaimer that thought leadership is not a client result where relevant.
+
+Suggested first 8 article topics:
+
+- How to plan a phased cloud migration with rollback points.
+
+- How to connect e-commerce, POS and inventory without stock mismatch.
+
+- From vehicle fault to workshop closure: designing a connected mobility workflow.
+
+- Human-in-the-loop AI: ownership, review and auditability in enterprise workflows.
+
+- API integration strategy for legacy enterprise systems.
+
+- Security gates that should exist before production release.
+
+- How to reduce manual re-keying in banking and insurance operations.
+
+- How to measure operational workflow automation beyond number of dashboards.
+
+## 7.6 Contact / Start a project
+
+Create a dedicated /contact/ or /start-a-project/ page even if the header Contact currently opens an email client. Email-only contact creates friction, offers no context and is difficult to measure.
+
+- Form fields: name, work email, company, role (optional), service/platform interest, project stage, message and consent/privacy acknowledgement.
+
+- Use a two-step form only if the first step is short and the second step adds useful qualification. Avoid demanding budget or phone number too early.
+
+- Offer three clear routes: Discuss a project; Request a platform demo; Partnership enquiry.
+
+- Show a verified business email, phone if staffed, office location and expected response time.
+
+- On submission: server-side validation, spam/rate protection, acknowledgement email, internal routing, CRM or secure inbox handoff, success state and error recovery.
+
+- Track form start, completion, validation failure, CTA click and booked meeting.
+
+## 7.7 Company / About page — currently a missing strategic page
+
+Add an About page so enterprise buyers can understand who they are evaluating.
+
+- Company story and what the team focuses on.
+
+- Leadership and delivery team profiles with real names, roles and professional backgrounds.
+
+- Delivery locations, legal entity details and company contact information.
+
+- Engineering principles: architecture, quality, security, documentation, communication and ownership.
+
+- Partner ecosystem with approved partner names/logos and the exact relationship.
+
+- Careers only if there is an active hiring process.
+
+# 8. Visual design system and interaction direction
+
+Recommended aesthetic: premium, editorial, precise enterprise technology. The website should feel like a serious engineering partner—not a template IT company and not a clone of Parallel.
+
+| Design token | Recommendation |
+| --- | --- |
+| Colour | Deep ink/navy for strong sections; warm white/light grey for content; one confident teal/cyan accent; restrained secondary colour for platform differentiation. |
+| Typography | One modern sans-serif family with clear display and body hierarchy. Avoid tiny body text and overly long line lengths. |
+| Layout | Consistent max-width container, 12-column desktop grid, generous spacing, strong section rhythm and predictable alignment. |
+| Navigation | Simple sticky header; clear primary CTA; compact dropdown/mega-menu only where helpful; mobile drawer with accessible focus management. |
+| Cards | Use cards only when they represent distinct services/products/use cases. Each card needs a clear title, outcome, proof cue and action. |
+| Visuals | Real product UI, architecture diagrams, process maps, team photos and workflow illustrations. Avoid random stock photos. |
+| Motion | Subtle transitions and micro-interactions; no excessive parallax, scroll hijacking or autoplay audio. Respect prefers-reduced-motion. |
+| Responsive | Design mobile and desktop intentionally; avoid simply shrinking the desktop layout. |
+| Accessibility | Semantic HTML, logical heading order, keyboard operation, visible focus, contrast, alt text, labels and accessible error messages. |
+
+## Recommended homepage visual composition
+
+Desktop: left side contains the H1, two-line explanation and CTAs; right side shows a real platform dashboard or workflow visual in a framed product window. Beneath it, a slim proof row. Use alternating light/dark sections to create rhythm. Mobile: stack the copy first, then a compressed product visual, then CTAs; do not hide the main message inside a carousel.
+
+## Motion and interaction ideas worth building
+
+- Interactive workflow explorer: select a platform or industry and reveal steps, users, systems and outputs.
+
+- Product screenshot gallery with zoom and annotated callouts.
+
+- Short product demo video with captions and poster image; click-to-play rather than autoplay by default.
+
+- Before/after process comparison with a clear explanation of what changed.
+
+- Sticky in-page navigation on long service/product pages.
+
+- Searchable capability directory with accessible filters.
+
+- Subtle hover states and scroll reveals that never block reading or delay content.
+
+# 9. Conversion strategy: give different buyers the right next step
+
+| Visitor intent | CTA | Useful supporting content |
+| --- | --- | --- |
+| Exploring the company | Explore capabilities | Clear positioning, delivery approach, About page. |
+| Evaluating a service | Discuss this service | Scope, deliverables, technology, timeline, FAQs and related work. |
+| Evaluating a platform | Request a demo | Screenshots, walkthrough, features, integrations, security and deployment. |
+| Researching an industry | Discuss this workflow | Industry problem map, relevant platform, reference implementation. |
+| Not ready to talk | Read a guide / view architecture | Useful article, checklist or technical resource. |
+
+Avoid using “Contact us” as the only action on every page. Carry the visitor's selected service, platform or industry into the enquiry form so the sales team receives context.
+
+# 10. SEO, content and discoverability
+
+- Create unique, descriptive page titles and meta descriptions for every indexable page.
+
+- Use one clear H1 per page, descriptive H2 sections and human-readable URLs.
+
+- Make important service and product details available in crawlable HTML, not only in JavaScript-only modal content.
+
+- Create XML sitemap, robots.txt, canonical URLs, Open Graph metadata and breadcrumb navigation.
+
+- Add structured data only when accurate and eligible: Organization, BreadcrumbList, Article, Product or SoftwareApplication as appropriate. Do not add fake ratings or reviews.
+
+- Write original, helpful content answering actual buyer questions; avoid keyword stuffing and generic AI-generated filler.
+
+- Build internal links between service pages, industry pages, platform pages, case studies and relevant insights.
+
+- Keep the mobile page content, metadata, headings and structured data equivalent to desktop.
+
+- Use descriptive alt text for informative visuals; decorative images should have empty alt text.
+
+- Set up Google Search Console and Bing Webmaster Tools; submit sitemap and monitor indexing, queries and page experience.
+
+- Prepare redirect mapping before changing URLs; monitor 404s and lost organic landing pages after launch.
+
+Keyword direction (validate with keyword research before targeting): enterprise software development company, cloud migration services, application modernisation, data engineering services, AI workflow automation, cybersecurity consulting, retail POS and inventory platform, fleet management software, banking workflow automation, insurance claims management software. Use only the terms matching actual offers.
+
+Google guidance: https://developers.google.com/search/docs/fundamentals/seo-starter-guide and https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing.
+
+# 11. Performance, accessibility, security and engineering requirements
+
+## Performance
+
+- Measure real mobile and desktop performance before and after redesign; do not assume a problem without a measurement.
+
+- Target Core Web Vitals at the 75th percentile: LCP ≤ 2.5 seconds, INP ≤ 200 ms and CLS ≤ 0.1.
+
+- Use responsive AVIF/WebP images with width/height attributes; lazy-load below-the-fold media; prioritise the hero asset.
+
+- Minimise JavaScript, avoid unnecessary animation libraries and defer non-critical scripts.
+
+- Use font subsets/preloading carefully, cache static assets and compress responses.
+
+- Measure using PageSpeed Insights, Lighthouse and Search Console field data.
+
+## Accessibility
+
+- Target WCAG 2.2 AA as the practical design/development standard.
+
+- Keyboard-only test all navigation, tabs, filters, dialogs, galleries and forms.
+
+- Ensure focus is visible and not trapped; dialogs return focus to the trigger.
+
+- Use semantic buttons and links, proper labels, descriptive accessible names and helpful validation errors.
+
+- Ensure text contrast, zoom/reflow, reduced motion and captions/transcripts for videos.
+
+## Security and privacy
+
+- HTTPS everywhere, security headers, secure cookie practices and dependency patching.
+
+- Validate and sanitise all form inputs server-side; rate-limit form submissions and protect against abuse.
+
+- Do not expose API keys, environment variables, internal endpoints or sensitive data in client-side code.
+
+- Publish an accurate privacy policy and explain how enquiry information is used and retained.
+
+- Only claim certifications (SOC 2, ISO 27001, GDPR, HIPAA etc.) if Tiooex has verified evidence and permission to make the claim.
+
+- Document actual access control, encryption, backups, incident response and data retention practices before describing them publicly.
+
+Core Web Vitals reference: https://developers.google.com/search/docs/appearance/core-web-vitals
+
+# 12. Analytics and business measurement
+
+| Event | Why it matters |
+| --- | --- |
+| nav_click | Understand which site sections visitors explore. |
+| hero_primary_cta_click | Measure primary message/action effectiveness. |
+| platform_demo_click | Measure product evaluation interest. |
+| service_detail_cta_click | Identify high-intent service areas. |
+| industry_selector_change | See which sectors attract attention. |
+| case_study_view | Measure proof-content consumption. |
+| contact_form_start / error / submit | Identify conversion friction. |
+| meeting_booked | Measure completed sales handoff. |
+| resource_download | Measure research-stage engagement. |
+
+Create a monthly dashboard with sessions by source, qualified enquiries, enquiry-to-meeting rate, demo requests, top landing pages, CTA click-through, form completion and organic search performance. Avoid celebrating traffic growth without measuring qualified leads.
+
+# 13. Content proof: what Tiooex must collect internally
+
+The biggest barrier to making the site feel like a top-tier enterprise company is not visual design; it is the availability of real evidence. Before writing claims, collect:
+
+- Approved customer names/logos or permission for anonymised descriptions.
+
+- Project challenge, solution, technologies, timeline, team role and measured outcomes.
+
+- Real screenshots from the platforms using synthetic/demo data that contains no customer personal information.
+
+- Product status: live, pilot, beta, concept or planned; who supports it; current integrations; deployment options.
+
+- Leadership/team biographies and actual delivery credentials.
+
+- Partner agreements and permission to use partner branding.
+
+- Security policies, architecture facts and certifications that can be substantiated.
+
+- Support hours, SLA, response process, escalation path and geography actually served.
+
+If the company cannot provide a proof point, do not fill the gap with a fabricated metric. Use a clearly labelled reference architecture, sample workflow or product concept.
+
+# 14. Priority register: what to add, improve and remove
+
+| Priority | Add | Improve | Remove / reduce |
+| --- | --- | --- | --- |
+| P0 — immediate | Dedicated contact route; clear company positioning; service/platform status labels; real CTA destinations. | Hero, footer, page-to-page links, enquiry route, key navigation. | Vague footer phrase “robotic machines, telecom, and more” unless substantiated; dead/unused social icons; generic “every industry” claim if unproven. |
+| P1 — high | About/team; product screenshots; 2 credible case studies or labelled reference implementations; core service detail pages. | Capabilities taxonomy; product page depth; industry workflows; demo journey. | Overlapping 16-card service catalogue where scopes are not distinct; unsupported product claims. |
+| P2 — medium | Full insight articles; guides; FAQs; architecture visuals; integration lists; security page. | SEO, internal linking, visual consistency, mobile content and accessibility. | Empty category states; thin articles; decorative animations that do not help the buyer. |
+| P3 — continuous | Analytics dashboard, release notes, customer proof library and content governance. | Performance, conversion testing, security review, editorial quality. | Stale articles, obsolete services, unsupported integrations and unmaintained pages. |
+
+# 15. Implementation plan — 90 days
+
+| Phase | Work | Exit criteria |
+| --- | --- | --- |
+| Days 1–10: strategy & fixes | Confirm ICP, revenue priorities, product status, claims; test all links and interactive controls; fix contact route and homepage CTA; rewrite footer. | Approved positioning, verified sitemap, working enquiry route, no obvious dead ends. |
+| Days 11–30: core experience | Create design system; rebuild homepage; restructure capabilities; create About and Contact; implement templates for service and platform pages. | Responsive homepage and core templates approved; service/product taxonomy signed off. |
+| Days 31–50: product & proof | Add platform detail pages, screenshots, demos, workflow maps, case studies/reference implementations and priority industry pages. | Each priority platform/service has substantive detail, proof and a clear CTA. |
+| Days 51–70: content & search | Publish insights, metadata, sitemap, redirects, structured data where appropriate and internal links. | Indexable pages validated; redirects tested; content reviewed. |
+| Days 71–90: QA & optimisation | Accessibility, performance, security, analytics, cross-device testing and conversion iteration. | QA checklist passed; events tracked; baseline metrics and monthly review owner assigned. |
+
+# 16. Acceptance criteria for launch
+
+☐ Homepage answers what Tiooex does, who it serves and why it matters within the first screen.
+
+☐ Every top navigation item, CTA, card, filter, sector selector and article action has a defined working outcome.
+
+☐ Every priority service has a dedicated, crawlable detail page.
+
+☐ Every active platform has status, feature detail, real screenshots or clearly labelled concept visuals, integrations and a demo/contact action.
+
+☐ At least two proof assets are available: approved case studies, anonymised case studies or clearly labelled reference implementations.
+
+☐ About and Contact pages exist and contain verified company information.
+
+☐ Contact form works end-to-end and routes to a monitored inbox/CRM.
+
+☐ Mobile layout works at common phone and tablet sizes without hidden content or horizontal overflow.
+
+☐ Keyboard and screen-reader journeys are tested for navigation, dialogs, filters and forms.
+
+☐ Core Web Vitals are measured; target LCP ≤2.5s, INP ≤200ms, CLS ≤0.1 at the 75th percentile.
+
+☐ Unique title/meta description, canonical URL, H1, sitemap and redirect mapping are complete.
+
+☐ Analytics records CTA clicks, form funnel, demo requests and qualified outcomes.
+
+☐ All claims about customers, outcomes, integrations, certifications and product maturity are approved and evidenced.
+
+# 17. Decisions required from Tiooex before development
+
+1. What are the top three revenue-generating services Tiooex wants to sell over the next 12 months?
+
+1. Which platforms are live and demo-ready, and which are concepts or under development?
+
+1. Which 3–4 industries have actual delivery experience or a strong reference implementation?
+
+1. Can Tiooex publish named customers, anonymised case studies, team profiles and quantified outcomes?
+
+1. What is the primary conversion goal: project enquiry, platform demo, partnership or another action?
+
+1. Who owns incoming leads and what response time can the team reliably meet?
+
+1. Which technologies, integrations, cloud providers and deployment models are actually supported?
+
+1. What are the brand guidelines, logo assets, preferred colour palette and approved product screenshots?
+
+# 18. Research references
+
+- Tiooex Home — https://www.tiooex.in/
+
+- Tiooex Capabilities — https://www.tiooex.in/products.html
+
+- Tiooex Platforms — https://www.tiooex.in/platforms.html
+
+- Tiooex Industries — https://www.tiooex.in/services.html
+
+- Tiooex Insights — https://www.tiooex.in/blogs.html
+
+- Parallel.ai homepage — https://parallel.ai/
+
+- Parallel.ai Search product page — https://parallel.ai/products/search
+
+- Google Search Central SEO Starter Guide — https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+
+- Google mobile-first indexing guidance — https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing
+
+- Google Core Web Vitals — https://developers.google.com/search/docs/appearance/core-web-vitals
+
+- B2B tech website content structure guide — https://www.articulatemarketing.com/blog/how-to-build-a-b2b-tech-website-that-converts-complex-buyers
+
+- B2B website design practices 2026 — https://www.grafit.agency/blog/b2b-website-design-best-practices
+
+# Final conclusion
+
+Tiooex does not need more generic sections. It needs a sharper commercial story, fewer but stronger service lines, detailed product pages, real product evidence, industry-specific workflows, credible proof and a reliable enquiry path. Parallel.ai demonstrates how to make a complex technology offer tangible through live examples, product pathways, trust and technical depth. Tiooex should adapt those principles to its own business and evidence.
+
+This specification is the next planning document, not a claim that all technical checks have already passed. The development team should validate all interactions in a real browser and run performance, accessibility, SEO and security tests before launch.
+
+ADVANCED IMPLEMENTATION APPENDICES
+
+# Technical Architecture, UX Engineering,
+Growth Experiments & Delivery Controls
+
+Advanced skills edition  |  Addendum to Version 3  |  2 November 2026
+
+# 19. New research: what the current reference sites teach us
+
+A deeper inspection of Parallel.ai's current homepage shows a more precise pattern than the earlier review: the site opens with a concise product category statement, puts an interactive API/playground concept near the top, follows with named customer proof, explains four concrete jobs-to-be-done, offers use-case-specific try actions, then presents product APIs, benchmarks and an enterprise trust framework. This is stronger than a conventional services homepage because it demonstrates what the product does before asking the visitor to believe a claim. Tiooex should adapt the sequencing, not the product-specific content.
+
+- Show the work, not only the promise: real product screenshots, short guided demos and a visible workflow.
+
+- Use job-based use cases: describe the user's task, the system inputs, the steps and the output.
+
+- Make proof inspectable: link a logo or testimonial to a case study; link an outcome to a method or context.
+
+- Make enterprise readiness visible: security, identity, audit, data handling, support and deployment details.
+
+- Treat benchmarks as technical content, not decorative numbers: publish methodology, test date, sample size, limitations and source.
+
+Parallel reference: https://parallel.ai/ (homepage sections include product interaction, customer logos, use cases, product suite, benchmarks and trust). Its current public content describes APIs for search, extract, monitoring and research; this is not a template for Tiooex's own offer.
+
+The 2026 Navattic interactive demo report analyses over 40,000 demos and defines engagement, completion and CTA click-through with explicit denominators. Use it as a measurement framework, not as a guaranteed performance target for Tiooex. Source: https://www.navattic.com/report/state-of-the-interactive-product-demo-2026.
+
+Google's published Core Web Vitals guidance sets good experience targets at LCP ≤2.5s, INP <200ms and CLS <0.1. W3C recommends using WCAG 2.2 as the current accessibility baseline. Sources: https://developers.google.com/search/docs/appearance/core-web-vitals and https://www.w3.org/TR/WCAG22/.
+
+Recent B2B conversion guidance consistently emphasises message clarity, credible proof, differentiated CTAs and reduced friction. Treat third-party conversion percentages as directional benchmarks only; Tiooex must establish its own baseline before setting targets. Reference: https://www.cleardigital.com/insights/saas-b2b-website-conversion-best-practices.
+
+# 20. Technical architecture recommendation
+
+Do not select a framework because a reference website uses it. Select the simplest maintainable architecture that fits Tiooex's content publishing needs, interactive experiences, SEO requirements, security model and team skills. The public audit cannot identify the current source stack, hosting or CMS; these recommendations are a target architecture, not a diagnosis of the existing code.
+
+## 20.1 Architecture principles
+
+- Content-first and SEO-friendly: critical page content must be present in server-rendered HTML or equivalent crawlable output.
+
+- Progressive enhancement: pages remain readable and navigable if optional JavaScript or animation fails.
+
+- Design-system driven: shared tokens and components prevent each page becoming a one-off.
+
+- Composable page templates: service, platform, industry, case study and article pages use reusable templates and structured content.
+
+- Security by default: validate input on the server, protect secrets, rate-limit public forms and minimise third-party scripts.
+
+- Performance budgets: every new dependency, animation, video and image must justify its cost.
+
+- Operational visibility: logs, uptime checks, error monitoring, analytics and deployment rollback are planned from the start.
+
+## 20.2 Reference application layers
+
+| Layer | Recommended responsibility | Implementation notes |
+| --- | --- | --- |
+| Presentation | Responsive site shell, navigation, page templates, design system, accessible interactions. | Use semantic HTML, CSS variables/tokens, small client-side islands only where interactivity is needed. |
+| Content | Pages, service records, product records, industries, case studies, articles, FAQs, navigation. | Use a headless CMS or a well-governed existing CMS; define editorial roles and preview workflow. |
+| Lead capture | Contact, demo and project enquiry forms. | Server-side validation, spam controls, consent record, notification, CRM/secure inbox integration. |
+| Integration | CRM, scheduling, email, analytics, consent manager and optional demo tooling. | Use approved vendor APIs, environment-managed secrets and clear data-processing agreements. |
+| Delivery | Build, test, deploy, monitor, backup and rollback. | CI checks, staging environment, release approvals, uptime/error monitoring and documented rollback. |
+
+## 20.3 Stack selection guidance
+
+| Need | Suitable direction | Decision rule |
+| --- | --- | --- |
+| Marketing site with many content pages | Static generation or server rendering with a CMS. | Choose if content SEO, fast page delivery and editorial publishing dominate. |
+| Highly interactive product demos | Small isolated React/TypeScript components or a dedicated demo tool. | Use only for real interactions; do not ship a large app bundle for decorative effects. |
+| Existing Laravel/PHP website | Retain Laravel if it is secure, maintainable and the team can support it; improve templates and asset pipeline. | Avoid a full rewrite unless there is a measurable limitation in the current platform. |
+| CMS/editorial workflow | Existing CMS or headless CMS with preview, role-based publishing and structured content. | Editors should update content without developer deployment. |
+| Forms and CRM | Server-side endpoint with validated CRM integration. | Do not send sensitive enquiry data to client-side analytics or expose API credentials. |
+
+Architecture decision record (ADR) required before selecting or changing the framework: context, options considered, constraints, security/privacy impact, performance impact, team capability, operating cost, migration risk, chosen option and review date.
+
+# 21. Content model and CMS schema
+
+Create structured content types rather than hard-coding all content into page components. This improves reuse, internal linking, preview and governance.
+
+| Content type | Required fields | Relationships |
+| --- | --- | --- |
+| Service | Name, slug, summary, buyer problem, outcomes, scope, deliverables, technologies, process, FAQs, CTA, status, SEO title/description. | Related industries, platforms, case studies, insights. |
+| Platform | Name, status (live/pilot/beta/concept), target users, modules, workflows, screenshots, demo URL, integrations, deployment, security, support, FAQs. | Related industries, services, case studies. |
+| Industry | Name, market context, buyer roles, challenges, workflows, integrations, risks, relevant services/platforms, proof. | Related case studies and insights. |
+| Case study | Client display permission, anonymisation status, sector, challenge, solution, role, timeline, stack, outcomes, measurement method, approval date. | Related services, platforms, industries. |
+| Insight | Title, slug, author, publish/update dates, summary, body, references, category, hero asset, reading time, CTA. | Related services, platforms, industries. |
+| Team member | Name, role, bio, approved photo, experience summary, social/professional link, consent. | Company page and relevant insights. |
+| FAQ | Question, answer, category, display priority, approval date. | Service/platform/industry page. |
+
+- Every content item needs a lifecycle status: draft, in review, approved, published, archived.
+
+- Use stable slugs; changing a slug requires a 301 redirect and link audit.
+
+- Store image alt text and image rights/permission metadata with each asset.
+
+- Keep factual claims and case-study metrics linked to an internal evidence owner and approval date.
+
+- Do not put customer personal information, production screenshots or confidential architecture diagrams into public CMS assets.
+
+# 22. Advanced UX and interaction specification
+
+## 22.1 Navigation behaviour
+
+- Desktop: sticky header with a clear active state; dropdowns open on click and keyboard, not hover alone.
+
+- Mobile: accessible drawer; lock background scroll while open; Escape closes; focus returns to menu trigger.
+
+- Every menu item is a real link. Do not use clickable divs for navigation.
+
+- Use breadcrumbs on deep pages and contextual in-page navigation for long service/product pages.
+
+- Provide a visible route back to the main product/service directory.
+
+## 22.2 Interactive industry explorer
+
+1. Visitor selects an industry.
+
+1. Show a specific operational challenge and the persona affected.
+
+1. Show a 4–7 step workflow map with inputs, systems, decisions and outputs.
+
+1. Map the workflow to one relevant Tiooex platform and one service line.
+
+1. Show a real proof item or clearly labelled reference implementation.
+
+1. Offer a contextual CTA that carries the selected industry into the enquiry form.
+
+## 22.3 Product demo design
+
+- Start with a guided 60–120 second demo path for one high-value workflow.
+
+- Use synthetic records and a visible demo-data label; never expose live customer data.
+
+- Allow restart, skip and keyboard operation; show progress and estimated duration.
+
+- Each step should explain the user action and the business consequence, not only point at a button.
+
+- At the end, offer a relevant CTA: request a tailored demo, discuss integration or download a product brief.
+
+- Provide a static screenshot/video alternative for low-bandwidth users and assistive technology.
+
+- Track demo started, step completed, demo completed and CTA clicked; do not collect unnecessary personal data.
+
+## 22.4 Form UX
+
+- Ask only for information needed to route the enquiry. Name, work email, company, area of interest and message are a reasonable first step.
+
+- Make phone, budget and detailed project scope optional unless there is a clear business need.
+
+- Explain why a field is requested; mark required and optional fields clearly.
+
+- Preserve valid fields when validation fails; show errors beside the relevant field and in an accessible summary.
+
+- Provide a clear confirmation and expected response time; do not promise a response SLA the team cannot meet.
+
+- Record consent and privacy notice version when required; separate marketing subscription consent from responding to an enquiry.
+
+# 23. Design tokens and component library specification
+
+Create tokens centrally and use them consistently. The values below are starting points to validate against the existing logo/brand; they are not an instruction to discard the current identity.
+
+| Token family | Suggested starting rule | Usage |
+| --- | --- | --- |
+| Colour | Ink #10243A; surface #F7F9FB; white #FFFFFF; accent teal #087E8B; muted text #5B6875; border #DCE3E9. | Check contrast ratios before finalising. Reserve accent for key actions and highlights. |
+| Spacing | 4px base scale: 4, 8, 12, 16, 24, 32, 48, 64, 80, 96. | Use tokens rather than arbitrary per-component spacing. |
+| Typography | Display 48–64px desktop; H1 40–56px; H2 30–40px; H3 22–28px; body 16–18px; caption 13–14px. | Responsive clamp() values; body line-height around 1.5–1.7. |
+| Radius | Small 6px; medium 12px; large 20px; pill only for small labels/chips. | Avoid making every card excessively rounded. |
+| Container | Max content width around 1200–1280px; readable article width around 680–760px. | Set page-specific widths for wide diagrams and narrow reading. |
+| Motion | Fast 120–180ms, standard 200–260ms; respect reduced-motion preference. | Avoid scroll hijacking, flashing and long reveal delays. |
+
+## Core component inventory
+
+- SiteHeader, DesktopNav, MobileNav, Footer, Breadcrumbs, SectionHeading, CTAGroup.
+
+- HeroSplit, ProofStrip, LogoWall (only with approved logos), ServiceCard, PlatformCard, IndustryCard.
+
+- WorkflowStepper, ArchitectureDiagram, BeforeAfterPanel, FeatureGrid, IntegrationList, SecuritySummary.
+
+- ScreenshotGallery, VideoDemo, InteractiveDemoShell, FAQAccordion, RelatedContent.
+
+- CaseStudyCard, CaseStudyMetric (with source/context), ArticleCard, AuthorByline.
+
+- ContactForm, DemoRequestForm, FormField, ValidationSummary, SuccessState.
+
+- Cookie/consent controls only where applicable and based on actual tracking technologies.
+
+Every component must define responsive behaviour, keyboard behaviour, focus state, loading state, empty state, error state, content length constraints and analytics events where relevant.
+
+# 24. SEO information architecture and page metadata examples
+
+SEO work must be based on actual search intent and verified offerings. The keyword ideas below are hypotheses to validate using Search Console, keyword research and customer language; they are not claims of search volume or ranking opportunity.
+
+| Page | Suggested title pattern | Primary intent |
+| --- | --- | --- |
+| Home | Tiooex | Enterprise Software Engineering, Cloud & Digital Platforms | Brand + core proposition. |
+| Software Engineering | Enterprise Software Development & Modernisation | Tiooex | Custom software and modernisation. |
+| Cloud & DevOps | Cloud Engineering, Migration & DevOps Services | Tiooex | Cloud engineering and delivery. |
+| Data & AI | Data Engineering & AI Workflow Solutions | Tiooex | Data/AI services, only where supported. |
+| Cybersecurity | Application Security & Cybersecurity Engineering | Tiooex | Security engineering. |
+| Commerce Platform | Commerce, POS & Inventory Platform | Tiooex | Commerce workflows/software. |
+| Mobility Platform | Fleet, Mobility & Workshop Workflow Software | Tiooex | Mobility operations. |
+| Banking/Insurance | Banking & Insurance Workflow Platforms | Tiooex | Financial workflow software. |
+
+- Write a distinct meta description for each page; summarise the page and its audience rather than repeating keywords.
+
+- Use canonical URLs, XML sitemap, robots.txt, Open Graph tags and descriptive image names/alt text.
+
+- Use Organization and BreadcrumbList structured data where accurate; Article for editorial pages; SoftwareApplication/Product only when the offer genuinely meets the type definition and required fields are true.
+
+- Do not add review stars, ratings, awards, customer logos or aggregate rating structured data without real, policy-compliant evidence.
+
+- Make internal links descriptive, such as “Explore Commerce platform features”, not repeated “Learn more”.
+
+- Maintain a redirect register for old .html URLs if moving to clean paths. Validate redirect chains and canonical consistency.
+
+Google SEO guidance: https://developers.google.com/search/docs/fundamentals/seo-starter-guide. Google recommends useful, original, well-organised content and descriptive site structure; SEO changes do not guarantee indexing or rankings.
+
+# 25. Conversion optimisation programme
+
+Do not set arbitrary conversion targets before collecting a baseline. Run controlled experiments on high-traffic, high-intent pages; document hypothesis, segment, primary metric, guardrail metric, sample size approach, start/end dates and decision.
+
+| Experiment | Hypothesis | Primary metric | Guardrail |
+| --- | --- | --- | --- |
+| Hero headline A/B | A specific buyer/outcome statement helps visitors understand the offer faster than a generic slogan. | Primary CTA click-through and qualified enquiry rate. | Bounce/engagement and lead quality. |
+| CTA wording | “Discuss a project” may work better for services while “Request a demo” works better for products. | CTA click-to-completion rate. | Form abandonment. |
+| Product visual | Real UI screenshot with annotation may build more confidence than abstract illustration. | Platform detail CTA rate. | Page speed and mobile layout. |
+| Short guided demo | A short workflow demo may reduce uncertainty before a demo request. | Demo engagement/completion and downstream meeting rate. | Load time and accessibility. |
+| Proof placement | A relevant case study near a service CTA may improve confidence. | Qualified form submissions per service-page visit. | Page length and scroll depth. |
+| Form simplification | Removing nonessential fields may increase completion without lowering lead quality. | Form completion rate. | Sales-qualified lead rate. |
+| Industry-specific CTA | Carrying industry context into the enquiry may improve routing and relevance. | Industry page enquiry rate. | Lead routing accuracy. |
+
+Navattic's 2026 benchmark report defines demo engagement as users progressing beyond the first step, completion as users finishing the first flow, and CTA CTR as users clicking through after engagement. Adopt consistent definitions so the team can compare demos over time. Do not use its top-percentile numbers as a forecast for Tiooex.
+
+# 26. Analytics event taxonomy and data governance
+
+| Event name | Required properties (examples) | Purpose |
+| --- | --- | --- |
+| page_view | page_type, page_path, referrer, device_category | Understand page entry and journeys. |
+| primary_cta_click | cta_id, page_type, destination | Compare CTA placement and wording. |
+| service_filter_used | filter_name, filter_value | Find service discovery friction. |
+| industry_selected | industry_slug | Measure sector interest. |
+| platform_demo_started | platform_slug, demo_version | Measure product demo entry. |
+| platform_demo_step | platform_slug, step_number | Find drop-off points. |
+| platform_demo_completed | platform_slug, duration_bucket | Measure demo completion. |
+| form_started | form_type, page_type | Measure form intent. |
+| form_validation_error | form_type, field_name, error_type | Identify form friction without logging field values. |
+| form_submitted | form_type, interest_category | Measure conversion; never send message/email/phone values to analytics. |
+| meeting_booked | meeting_type, source_page | Measure actual handoff if booking system supports it. |
+
+- Use a documented event dictionary and version it with the code.
+
+- Never send names, email addresses, phone numbers, free-text messages or other personal data to general web analytics.
+
+- Apply consent rules before firing non-essential tracking tags where required.
+
+- Restrict analytics access by role and define retention periods.
+
+- Create dashboards for qualified leads and meetings, not only page views.
+
+# 27. Security, privacy and operational controls
+
+| Control area | Implementation requirement | Evidence to retain |
+| --- | --- | --- |
+| Public forms | Server-side validation, rate limits, bot mitigation, safe error messages, CSRF protection where applicable. | Test results, abuse monitoring, form routing log. |
+| Secrets | Environment-managed credentials, least privilege, no keys in browser bundles or repository. | Secret scan, access review. |
+| Dependencies | Lockfiles, automated vulnerability checks, patch process and dependency ownership. | CI reports, update log. |
+| Headers | HTTPS, HSTS after HTTPS readiness, CSP, frame restrictions, content-type and referrer policies as appropriate. | Header scan and CSP report review. |
+| Privacy | Privacy notice, data purpose, retention, access controls and processor review. | Approved privacy text, vendor inventory, retention policy. |
+| Availability | Uptime monitoring, error tracking, backups and rollback process. | Alert history, restore test, deployment log. |
+| Content security | Approval for customer logos, screenshots, testimonials, metrics and partner marks. | Written permissions and claim evidence. |
+
+Do not claim SOC 2, ISO 27001, GDPR certification, HIPAA compliance or any other assurance unless the organisation has the relevant verified status and legal approval to describe it. Describe concrete practices accurately instead.
+
+# 28. Advanced QA and release strategy
+
+| Test layer | Required checks | Release gate |
+| --- | --- | --- |
+| Functional | All links, routes, menus, filters, accordions, forms, demo controls, empty/error/success states. | No critical or high-severity broken journey. |
+| Responsive | Small mobile, large mobile, tablet, laptop and wide desktop; no overflow; readable forms and diagrams. | All priority pages pass visual review. |
+| Accessibility | Keyboard-only, focus order, contrast, headings, labels, dialog focus, zoom/reflow, reduced motion, screen reader spot checks. | No known critical WCAG 2.2 AA blockers; documented exceptions. |
+| Performance | Lighthouse lab checks plus field data where available; image/font/JS budgets; CWV monitoring. | No regression against agreed budgets; LCP/INP/CLS targets tracked. |
+| SEO | Status codes, canonical, metadata, sitemap, robots, structured data validation, redirects, noindex rules. | No accidental noindex, broken canonicals or redirect loops. |
+| Security | Dependency scan, secret scan, form abuse tests, header review, access review. | No unresolved critical/high vulnerabilities. |
+| Content | Claims, spelling, link destinations, image rights, metadata, CTA context and approval. | All public claims approved and traceable. |
+| Analytics | Events fire once, correct properties, consent behaviour, no PII in payloads. | Test events visible and validated. |
+
+- Maintain local, staging and production environments; never test new forms against live customer data.
+
+- Use preview deployments for content/design review.
+
+- Run automated checks in CI: lint, typecheck (if applicable), unit tests, link checks, accessibility smoke tests, dependency scan and build.
+
+- Use a staged rollout: internal review → limited production release → full release after monitoring.
+
+- Keep a rollback plan and preserve old content/redirects until launch is stable.
+
+# 29. Project governance and ownership
+
+| Role | Accountability |
+| --- | --- |
+| Business owner | Approves positioning, priority services, product status, target industries, lead handling and business claims. |
+| Product/platform owner | Supplies real product screens, feature status, roadmap, integrations, security facts and demo flows. |
+| UX/UI designer | Owns research, sitemap, journeys, design tokens, responsive layouts and accessibility design. |
+| Content/SEO lead | Owns copy, keyword validation, metadata, internal links, articles and editorial standards. |
+| Frontend/backend engineers | Own implementation, performance, secure forms, CMS integration, analytics and technical QA. |
+| QA/security owner | Owns test plan, regression, accessibility checks, dependency/security review and launch sign-off. |
+| Sales/lead owner | Owns enquiry routing, response process, CRM stages and lead quality feedback. |
+
+Weekly governance: review open decisions, content evidence gaps, blocked dependencies, defect severity, conversion metrics and release risk. No page should be published with an unverified product claim or customer result.
+
+# 30. Advanced delivery backlog
+
+| Epic | Key tasks | Priority | Definition of done |
+| --- | --- | --- | --- |
+| E1: Positioning | ICP, buyer personas, service priorities, proof inventory, approved hero copy. | P0 | One approved proposition and CTA strategy. |
+| E2: Foundation | Sitemap, URL plan, tokens, components, CMS/content models, environments. | P0 | Templates and publishing flow ready. |
+| E3: Homepage | Hero, proof, outcomes, platforms, services, workflows, case studies, CTA. | P0 | Responsive, accessible, content-approved homepage. |
+| E4: Lead conversion | Contact/demo forms, validation, spam controls, notification, analytics. | P0 | Successful end-to-end test and lead owner. |
+| E5: Service pages | 5 core service pages, scope, deliverables, technology, FAQs, related proof. | P1 | Each service has a crawlable detail page. |
+| E6: Platform demos | Product status, screenshots, demo scripts, feature modules, integrations. | P1 | At least one real/labelled walkthrough per active platform. |
+| E7: Industry journeys | 4 priority industry pages, workflow explorer, CTA context. | P1 | Each page maps problem to relevant service/platform. |
+| E8: Proof library | 2 case studies or reference implementations, team/company profile. | P1 | Permissions and evidence approved. |
+| E9: SEO/resources | Metadata, sitemap, redirects, articles, schema, internal links. | P2 | SEO QA completed and Search Console configured. |
+| E10: Optimisation | Experiment backlog, analytics dashboard, performance/accessibility fixes. | P2 | Baseline dashboard and review cadence live. |
+
+# 31. Final expert recommendation
+
+The next Tiooex website should behave like a digital sales engineer: it should understand the visitor's problem, explain the solution, show the workflow, provide proof, answer technical and enterprise questions, and make the next step easy. Parallel.ai is a useful benchmark because it makes product value tangible through examples, product interactions, proof, benchmarks and trust. Tiooex should apply that standard to its own actual capabilities and platforms.
+
+The most valuable advanced work is not adding visual effects. It is creating an evidence-backed content model, a reusable design system, accessible interactive workflows, product demos, a secure lead pipeline, measurable conversion events and a reliable release process. This is what turns a polished website into a sustainable enterprise growth asset.
+
+# 32. Additional research sources
+
+- Parallel.ai current homepage and product narrative — https://parallel.ai/
+
+- Navattic State of the Interactive Product Demo 2026 — https://www.navattic.com/report/state-of-the-interactive-product-demo-2026
+
+- Google Core Web Vitals — https://developers.google.com/search/docs/appearance/core-web-vitals
+
+- W3C WCAG 2.2 Recommendation — https://www.w3.org/TR/WCAG22/
+
+- Google SEO Starter Guide — https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+
+- Clear Digital B2B SaaS conversion guidance (28 Oct 2026) — https://www.cleardigital.com/insights/saas-b2b-website-conversion-best-practices
+
+- Quarter Digital B2B website structure, proof and conversion (12 Oct 2026) — https://quarter.digital/blog/b2b-saas-website-best-practices-structure-proof-and-conversion
+
+- Refact B2B SaaS website design (updated 25 Sep 2026) — https://refact.co/insights/digital-product/b2b-saas-website-design
+
+- Tiooex live homepage — https://www.tiooex.in/

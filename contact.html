@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact &amp; Start a Project — Tiooex</title>
+    <meta name="description" content="Discuss a project, request a platform demo, or send a partnership enquiry to Tiooex. Bangalore, India. We respond within two business days.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Contact — Tiooex">
+    <meta property="og:description" content="Start a project conversation with Tiooex. Software engineering, cloud, data, AI, and business platforms.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tiooex.in/contact.html">
+    <link rel="canonical" href="https://www.tiooex.in/contact.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta name="theme-color" content="#070b10">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.classList.add("js")</script>
+    <script defer src="content.js"></script>
+    <script defer src="chrome.js"></script>
+    <script defer src="script.js"></script>
+</head>
+<body class="page-contact">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="progress" aria-hidden="true"></div>
+
+    <div id="chrome-nav"></div>
+
+    <main id="main">
+        <section class="hero-full hero-split">
+            <div class="hero-bg"></div>
+            <div class="hero-layout">
+                <div class="hero-content reveal text-center">
+                    <p class="hero-eyebrow">Start a conversation</p>
+                    <h1 class="hero-title">Tell us what you are trying to change</h1>
+                    <p class="hero-sub">Choose how you want to engage. We use your message to route the enquiry — not to add you to a mailing list without consent.</p>
+                    <p class="form-note">Expected response: within two business days · <span class="footer-mail">contact.tiooex@gmail.com</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block text-center site-pad-x" id="contact">
+            <header class="seg-head seg-head-center site-wrap site-wrap--narrow site-wrap--head">
+                <h2>Send an enquiry</h2>
+                <p class="section-lead">We route project, demo, and partnership messages to the right team.</p>
+            </header>
+            <div class="inquiry reveal">
+                <div>
+                    <h2 class="section-title" style="font-size:clamp(28px,3vw,36px);margin-bottom:12px">Three ways to reach us</h2>
+                    <ul class="swap-points" style="margin-top:16px">
+                        <li><strong>Discuss a project</strong> — custom engineering, modernisation, or integration work</li>
+                        <li><strong>Request a platform demo</strong> — Commerce, Mobility, or Banking &amp; Insurance workflows</li>
+                        <li><strong>Partnership enquiry</strong> — co-delivery, ISV, or ecosystem collaboration</li>
+                    </ul>
+                    <p class="form-note" style="margin-top:20px">Bangalore, Karnataka 560066 · India</p>
+                </div>
+                <form id="inquiry-form" class="inquiry-form" novalidate>
+                    <div id="form-errors" class="empty-note" role="alert" hidden></div>
+                    <label class="field">
+                        <span>Enquiry type <em>(required)</em></span>
+                        <select name="route" id="field-route" required>
+                            <option value="project">Discuss a project</option>
+                            <option value="demo">Request a platform demo</option>
+                            <option value="partnership">Partnership enquiry</option>
+                        </select>
+                    </label>
+                    <label class="field">
+                        <span>Full name <em>(required)</em></span>
+                        <input name="name" type="text" autocomplete="name" required maxlength="120">
+                    </label>
+                    <label class="field">
+                        <span>Work email <em>(required)</em></span>
+                        <input name="email" type="email" autocomplete="email" required maxlength="160">
+                    </label>
+                    <label class="field">
+                        <span>Company <em>(required)</em></span>
+                        <input name="organization" type="text" autocomplete="organization" required maxlength="160">
+                    </label>
+                    <label class="field">
+                        <span>Role <em>(optional)</em></span>
+                        <input name="role" type="text" autocomplete="organization-title" maxlength="120">
+                    </label>
+                    <label class="field">
+                        <span>Service or platform interest</span>
+                        <select name="need" id="field-need">
+                            <option value="Not sure yet">Not sure yet</option>
+                            <option value="Software & digital engineering">Software &amp; digital engineering</option>
+                            <option value="Cloud & DevOps">Cloud &amp; DevOps</option>
+                            <option value="Data & AI">Data &amp; AI</option>
+                            <option value="Cybersecurity">Cybersecurity</option>
+                            <option value="Commerce platform">Commerce platform</option>
+                            <option value="Mobility platform">Mobility platform</option>
+                            <option value="Banking & insurance platform">Banking &amp; insurance platform</option>
+                            <option value="Industry workflow">Industry-specific workflow</option>
+                        </select>
+                    </label>
+                    <label class="field">
+                        <span>Project stage</span>
+                        <select name="stage">
+                            <option value="Exploring options">Exploring options</option>
+                            <option value="Defined initiative">Defined initiative with budget owner</option>
+                            <option value="Active RFP or vendor selection">Active RFP or vendor selection</option>
+                            <option value="Pilot or proof in progress">Pilot or proof in progress</option>
+                        </select>
+                    </label>
+                    <label class="field">
+                        <span>Message</span>
+                        <textarea name="message" rows="5" maxlength="4000" placeholder="Workflow, system, timeline, or constraint we should know about"></textarea>
+                    </label>
+                    <label class="field" style="flex-direction:row;align-items:flex-start;gap:10px">
+                        <input name="consent" type="checkbox" required style="width:auto;margin-top:4px">
+                        <span>I agree that Tiooex may use this information to respond to my enquiry. See our privacy notice on request.</span>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Send enquiry</button>
+                    <p id="inquiry-status" class="form-status" hidden role="status"></p>
+                    <p class="form-note">Submitting opens your email app with a pre-filled message. A server-side form endpoint can replace this when your team is ready.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="chrome-footer"></div>
+</body>
+</html>
