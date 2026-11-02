@@ -3953,6 +3953,8 @@ main{width:100%}
 .seg-alt .seg-head,
 .seg-alt .stage,
 .seg-alt .seg-more,
+.page-about .seg-alt .engage-row,
+.page-about .seg-alt .fact-grid,
 #engagement .seg-head,
 #engagement .engage-row,
 #notes .seg-head,
@@ -4201,6 +4203,60 @@ body.has-promo main article[id]{
     margin-left:auto;
     margin-right:auto;
     box-sizing:border-box;
+}
+
+/* About page: compact hero + aligned sections */
+.page-about .hero-full.page-about-hero,
+.page-about .hero-full{
+    min-height:0;
+    height:auto;
+    padding:40px 0 52px;
+    justify-content:flex-start;
+}
+.page-about .hero-title{
+    font-size:clamp(34px,4.5vw,52px);
+    line-height:1.1;
+    letter-spacing:-.03em;
+    color:#f4f8fc;
+}
+.page-about .hero-sub{
+    max-width:46ch;
+    margin-left:auto;
+    margin-right:auto;
+}
+.page-about .seg-alt{padding-left:0;padding-right:0}
+.page-about .seg-alt .engage-row,
+.page-about .seg-alt .fact-grid{margin-top:4px}
+.page-about .fact-grid{max-width:720px;margin-left:auto;margin-right:auto}
+.page-about .engage-row article{text-align:left}
+.page-about .about-location{
+    display:block;
+    max-width:480px;
+    margin:8px auto 0;
+    padding:24px 22px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.04);
+    font-style:normal;
+    text-align:center;
+    box-sizing:border-box;
+}
+.page-about .about-location-contact{margin-top:16px}
+@media(max-width:700px){
+    .page-about .engage-row{
+        display:grid;
+        grid-template-columns:1fr;
+        overflow:visible;
+        overscroll-behavior:auto;
+        scroll-snap-type:none;
+        padding:0;
+        gap:12px;
+    }
+    .page-about .engage-row article{
+        flex:none;
+        width:auto;
+        scroll-snap-align:none;
+    }
 }
 
 /* ===== Mobile polish (all pages) ===== */
