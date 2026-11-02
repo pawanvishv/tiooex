@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeMenu = () => {
         if (!panel || !toggle) return;
         panel.classList.remove("open");
+        panel.setAttribute("aria-hidden", "true");
         toggle.setAttribute("aria-expanded", "false");
         toggle.setAttribute("aria-label", "Open menu");
         document.body.classList.remove("menu-open");
@@ -136,9 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
         toggle.type = "button";
         toggle.setAttribute("aria-expanded", "false");
         toggle.setAttribute("aria-controls", "mobile-panel");
+        panel.setAttribute("aria-hidden", "true");
         toggle.addEventListener("click", (event) => {
             event.stopPropagation();
             const open = panel.classList.toggle("open");
+            panel.setAttribute("aria-hidden", open ? "false" : "true");
             toggle.setAttribute("aria-expanded", open ? "true" : "false");
             toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
             document.body.classList.toggle("menu-open", open);
@@ -155,6 +158,14 @@ document.addEventListener("DOMContentLoaded", () => {
             closeMenu();
         });
     });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && panel?.classList.contains("open")) closeMenu();
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.matchMedia("(min-width: 901px)").matches) closeMenu();
+    }, { passive: true });
 
     const revealItems = document.querySelectorAll(".reveal");
     let revealObserver = null;
