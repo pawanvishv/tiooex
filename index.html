@@ -9,6 +9,7 @@
     <meta name="description" content="Tiooex helps businesses engineer secure digital platforms, connect critical workflows, and modernise operations through software engineering, cloud, data, and AI. Bangalore, India.">
     <meta name="keywords" content="Tiooex, enterprise software development, cloud migration, application modernisation, data engineering, cybersecurity, digital platforms, Bangalore">
     <meta name="author" content="Tiooex">
+    <meta name="application-name" content="Tiooex">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#f4f6f9">
     <meta property="og:title" content="Tiooex | Enterprise Software Engineering, Cloud &amp; Digital Platforms">
@@ -27,6 +28,9 @@
     <meta name="twitter:description" content="Engineer secure digital platforms, connect workflows, and modernise operations with Tiooex.">
     <link rel="canonical" href="https://www.tiooex.in/">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="https://www.tiooex.in/sitemap.xml">
+    <link rel="icon" href="favicon.ico" sizes="48x48" type="image/x-icon">
+    <link rel="icon" href="assets/favicon-48.jpg" sizes="48x48" type="image/jpeg">
+    <link rel="icon" href="assets/logo-512.jpg" sizes="512x512" type="image/jpeg">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/logo-512.jpg" sizes="512x512">
     <link rel="manifest" href="site.webmanifest">
@@ -41,7 +45,12 @@
                 "@type": "Organization",
                 "name": "Tiooex",
                 "url": "https://www.tiooex.in/",
-                "logo": "https://www.tiooex.in/assets/logo-512.jpg",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.tiooex.in/assets/logo-512.jpg",
+                    "width": 512,
+                    "height": 512
+                },
                 "image": "https://www.tiooex.in/assets/logo-512.jpg",
                 "description": "Tiooex helps businesses engineer secure digital platforms, connect critical workflows, and modernise operations through software engineering, cloud, data, and AI.",
                 "address": {
@@ -58,7 +67,16 @@
                 "name": "Tiooex",
                 "url": "https://www.tiooex.in/",
                 "description": "Enterprise software engineering, cloud, data, AI, and business platforms. Bangalore, KA 560066.",
-                "publisher": { "@type": "Organization", "name": "Tiooex" }
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Tiooex",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.tiooex.in/assets/logo-512.jpg",
+                        "width": 512,
+                        "height": 512
+                    }
+                }
             }
         ]
     }
