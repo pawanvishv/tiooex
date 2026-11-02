@@ -1,6 +1,46 @@
 document.documentElement.classList.add("js");
 
+const TIOOEX_THEME_KEY = "tiooex-theme";
+
+const syncThemeUi = (theme) => {
+    const isDark = theme === "dark";
+    const next = isDark ? "light" : "dark";
+    document.querySelectorAll("[data-theme-toggle]").forEach((control) => {
+        control.setAttribute("aria-label", `Switch to ${next} mode`);
+        control.setAttribute("aria-pressed", isDark ? "true" : "false");
+    });
+    document.querySelectorAll(".mobile-panel-theme .theme-toggle-value").forEach((el) => {
+        el.textContent = isDark ? "Light mode" : "Dark mode";
+    });
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.content = isDark ? "#0d1218" : "#f4f6f9";
+};
+
+const setSiteTheme = (theme) => {
+    if (theme !== "light" && theme !== "dark") return;
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem(TIOOEX_THEME_KEY, theme);
+    syncThemeUi(theme);
+    const panel = document.getElementById("mobile-panel");
+    const toggle = document.getElementById("mobile-toggle");
+    if (panel?.classList.contains("open")) {
+        panel.classList.remove("open");
+        panel.setAttribute("aria-hidden", "true");
+        toggle?.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("menu-open");
+    }
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+    const initialTheme = document.documentElement.getAttribute("data-theme") || "light";
+    syncThemeUi(initialTheme);
+    document.querySelectorAll("[data-theme-toggle]").forEach((control) => {
+        control.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const current = document.documentElement.getAttribute("data-theme") || "light";
+            setSiteTheme(current === "dark" ? "light" : "dark");
+        });
+    });
     const publicMail = ["contact.tiooex", "gmail.com"].join("@");
     document.querySelectorAll(".footer-mail").forEach((link) => {
         const preferContact = link.getAttribute("href") === "contact.html";
@@ -216,25 +256,42 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const jump = document.querySelector(".jumpbar");
-    if (jump) {
-        const links = [...jump.querySelectorAll("a")];
+    const initSectionJump = (rootSelector, scrollOffset = 140) => {
+        const jump = document.querySelector(rootSelector);
+        if (!jump) return;
+        const links = [...jump.querySelectorAll("a[href^='#']")];
         const sections = links
             .map((link) => document.querySelector(link.getAttribute("href")))
             .filter(Boolean);
+        if (!sections.length) return;
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        links.forEach((link) => {
+            link.addEventListener("click", (event) => {
+                const target = document.querySelector(link.getAttribute("href"));
+                if (!target) return;
+                event.preventDefault();
+                target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+                links.forEach((peer) => peer.classList.toggle("is-current", peer === link));
+            });
+        });
         const mark = () => {
-            const y = window.scrollY + 140;
+            const y = window.scrollY + scrollOffset;
             let current = sections[0];
             sections.forEach((section) => {
                 if (section.offsetTop <= y) current = section;
             });
             links.forEach((link) => {
-                link.classList.toggle("is-current", current && link.getAttribute("href") === "#" + current.id);
+                const on = Boolean(current && link.getAttribute("href") === "#" + current.id);
+                link.classList.toggle("is-current", on);
+                if (on) link.setAttribute("aria-current", "true");
+                else link.removeAttribute("aria-current");
             });
         };
         mark();
         window.addEventListener("scroll", mark, { passive: true });
-    }
+    };
+    initSectionJump(".jumpbar", 140);
+    initSectionJump(".plat-jump", 160);
 
     document.querySelectorAll("[data-engage]").forEach((root) => {
         const tabs = [...root.querySelectorAll('[role="tab"]')];
@@ -864,98 +921,40 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const sceneButtons = [...document.querySelectorAll("[data-pick]")];
-    if (sceneButtons.length) {
-        const showScene = (id, smooth = true) => {
-            sceneButtons.forEach((button) => {
-                const on = button.dataset.pick === id;
+    const sectorRoot = document.querySelector("[data-sector-panel]");
+    const sectorButtons = sectorRoot ? [...sectorRoot.querySelectorAll("[data-pick]")] : [];
+    if (sectorButtons.length) {
+        const stageEl = sectorRoot.querySelector(".sector-stage");
+        const showSector = (id) => {
+            const active = sectorButtons.find((button) => button.dataset.pick === id) || sectorButtons[0];
+            sectorButtons.forEach((button) => {
+                const on = button === active;
                 button.setAttribute("aria-pressed", on ? "true" : "false");
-            });
-            document.querySelectorAll("[data-scene]").forEach((scene) => {
-                scene.classList.toggle("is-on", scene.dataset.scene === id);
             });
             const line = document.getElementById("scene-line");
             const note = document.getElementById("scene-note");
             const more = document.getElementById("scene-more");
-            const active = sceneButtons.find((button) => button.dataset.pick === id);
-            if (line && active) line.textContent = active.dataset.line || "";
-            if (note && active) note.textContent = active.dataset.note || "";
-            if (more && active) {
+            if (line) line.textContent = active.dataset.line || "";
+            if (note) note.textContent = active.dataset.note || "";
+            if (more) {
                 const label = active.textContent.trim();
-                more.href = "contact.html?industry=" + encodeURIComponent(label);
-                more.textContent = "Discuss " + label + " workflow";
+                more.href = active.dataset.href || "services.html";
+                more.textContent = "View " + label + " on Industries";
             }
-            if (active && active.parentElement) {
-                const list = active.parentElement;
-                const narrow = window.matchMedia("(max-width: 900px)").matches;
-                if (narrow) {
-                    sceneButtons.forEach((button) => list.appendChild(button));
-                } else {
-                    const count = sceneButtons.length;
-                    const index = sceneButtons.indexOf(active);
-                    const lead = Math.max(0, Math.floor(count / 2) - 1);
-                    for (let step = 0; step < count; step++) {
-                        list.appendChild(sceneButtons[(index - lead + step + count) % count]);
-                    }
-                    const listBox = list.getBoundingClientRect();
-                    const itemBox = active.getBoundingClientRect();
-                    const top = itemBox.top - listBox.top + list.scrollTop - (list.clientHeight - itemBox.height) / 2;
-                    const left = itemBox.left - listBox.left + list.scrollLeft - (list.clientWidth - itemBox.width) / 2;
-                    if (typeof list.scrollTo === "function") {
-                        list.scrollTo({ top, left, behavior: smooth ? "smooth" : "auto" });
-                    } else {
-                        list.scrollTop = top;
-                        list.scrollLeft = left;
-                    }
-                }
+            if (stageEl) {
+                stageEl.classList.remove("is-updating");
+                void stageEl.offsetWidth;
+                stageEl.classList.add("is-updating");
+            }
+            if (active.scrollIntoView && window.matchMedia("(max-width: 900px)").matches) {
+                active.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
             }
         };
-        let timer = null;
-        let paused = false;
-        const stage = document.querySelector(".stage");
-        const advance = () => {
-            if (paused) return;
-            const index = sceneButtons.findIndex((button) => button.getAttribute("aria-pressed") === "true");
-            const next = sceneButtons[(index + 1) % sceneButtons.length];
-            showScene(next.dataset.pick);
-        };
-        const startScenes = () => {
-            clearInterval(timer);
-            const interval = document.body.classList.contains("page-home") ? 5200 : 3200;
-            timer = setInterval(advance, interval);
-        };
-        sceneButtons.forEach((button) => {
-            button.addEventListener("click", () => {
-                showScene(button.dataset.pick);
-                if (!paused) startScenes();
-            });
+        sectorButtons.forEach((button) => {
+            button.addEventListener("click", () => showSector(button.dataset.pick));
         });
-        if (stage) {
-            stage.addEventListener("pointerenter", (event) => {
-                if (event.pointerType === "touch") return;
-                paused = true;
-                stage.classList.add("is-held");
-                clearInterval(timer);
-            });
-            stage.addEventListener("pointerleave", () => {
-                paused = false;
-                stage.classList.remove("is-held");
-                startScenes();
-            });
-        }
-        const current = sceneButtons.find((button) => button.getAttribute("aria-pressed") === "true") || sceneButtons[0];
-        showScene(current.dataset.pick, false);
-        startScenes();
-        const layoutQuery = window.matchMedia("(max-width: 900px)");
-        const refreshSceneLayout = () => {
-            const picked = sceneButtons.find((button) => button.getAttribute("aria-pressed") === "true") || sceneButtons[0];
-            showScene(picked.dataset.pick, false);
-        };
-        if (typeof layoutQuery.addEventListener === "function") {
-            layoutQuery.addEventListener("change", refreshSceneLayout);
-        } else if (typeof layoutQuery.addListener === "function") {
-            layoutQuery.addListener(refreshSceneLayout);
-        }
+        const current = sectorButtons.find((button) => button.getAttribute("aria-pressed") === "true") || sectorButtons[0];
+        showSector(current.dataset.pick);
     }
 
     const segLinks = [...document.querySelectorAll(".seg-nav a")];

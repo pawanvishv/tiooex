@@ -13,9 +13,19 @@
                 <a href="services.html">Industries</a>
                 <a href="blogs.html">Insights</a>
                 <a href="about.html">About</a>
+                <button type="button" class="theme-toggle nav-theme-toggle" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a6.5 6.5 0 0 0 11.5 11.5z"/></svg></span>
+                </button>
                 <a href="contact.html" class="btn-nav btn-nav-primary">Discuss a project</a>
             </div>
-            <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel">&#9776;</button>
+            <div class="nav-actions">
+                <button type="button" class="theme-toggle nav-theme-toggle nav-theme-toggle--mobile" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+                    <span class="theme-icon theme-icon-sun" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span>
+                    <span class="theme-icon theme-icon-moon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a6.5 6.5 0 0 0 11.5 11.5z"/></svg></span>
+                </button>
+                <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-panel">&#9776;</button>
+            </div>
         </div>
         <div class="mobile-panel" id="mobile-panel">
             <a href="index.html">Home</a>
@@ -25,6 +35,10 @@
             <a href="blogs.html">Insights</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
+            <button type="button" class="mobile-panel-theme" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+                <span class="theme-toggle-label">Appearance</span>
+                <span class="theme-toggle-value">Dark mode</span>
+            </button>
         </div>
     </div>
 </nav>`;

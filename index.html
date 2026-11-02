@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="theme-init.js"></script>
     <title>Tiooex | Enterprise Software Engineering, Cloud &amp; Digital Platforms</title>
     <meta name="description" content="Tiooex helps businesses engineer secure digital platforms, connect critical workflows, and modernise operations through software engineering, cloud, data, and AI. Bangalore, India.">
     <meta name="keywords" content="Tiooex, enterprise software development, cloud migration, application modernisation, data engineering, cybersecurity, digital platforms, Bangalore">
@@ -290,98 +291,22 @@
                 <h2>Where the first question changes</h2>
                 <p class="section-lead">Nine sectors. The capabilities stay. The constraint does not. Pick one and read the path we would start on.</p>
             </header>
-            <div class="stage">
-                <div class="stage-list" role="group" aria-label="Industries">
-                    <button type="button" data-pick="automotive" data-line="A connected fault, followed to a closed job." data-note="Connected features are easy to announce and hard to service. Follow one failure from the vehicle, through the retailer, to a workshop job someone can close the same day." data-href="services.html#automotive" aria-pressed="true">Automotive</button>
-                    <button type="button" data-pick="banking" data-line="One customer journey. Shared facts." data-note="Channel, core, and risk often run as separate programs. The work that holds is one journey whose failure cost is known, with the same facts for the customer, the control function, and the product owner." data-href="services.html#banking" aria-pressed="false">Banking</button>
-                    <button type="button" data-pick="markets" data-line="Request, book, and risk on one path." data-note="The core is rarely one system. It is the path from a client request to booking, risk, and reporting. Count the manual bridges before selecting another platform." data-href="services.html#capital-markets" aria-pressed="false">Capital markets</button>
-                    <button type="button" data-pick="insurance" data-line="The claim queue, not another portal." data-note="A portal in front of the same handoffs keeps the queue. Start with the claim type that costs the most, and the evidence two teams currently do not trust." data-href="services.html#insurance" aria-pressed="false">Insurance</button>
-                    <button type="button" data-pick="retail" data-line="From intent to a completed order." data-note="The channel and the order system disagree more often than the campaign does. Follow one order from intent to cash, and fix where price, stock, or eligibility is still manual." data-href="services.html#retail" aria-pressed="false">Retail</button>
-                    <button type="button" data-pick="industrial" data-line="The decision that waits on the floor." data-note="Planning and the line often work from different pictures of demand and inventory. One product family, its suppliers, and the weekly decision that is currently late." data-href="services.html#industrial" aria-pressed="false">Industrial</button>
-                    <button type="button" data-pick="energy" data-line="Field work and the control room, same day." data-note="The field and the control room should not wait on a status meeting. One job type that can be seen, assigned, and closed with the same facts in both places." data-href="services.html#energy" aria-pressed="false">Energy</button>
-                    <button type="button" data-pick="health" data-line="The handoff that arrives late." data-note="Handoffs fail when the next team receives the case after the decision window. Map one handoff that is routinely late, and the record both sides will actually use." data-href="services.html#health" aria-pressed="false">Health</button>
-                    <button type="button" data-pick="public" data-line="Access that still works on a bad day." data-note="A service that only works for the expected case fails the people who need it most. Design the access path, the exception, and the evidence that remains when the usual route is down." data-href="services.html#public-service" aria-pressed="false">Public service</button>
+            <div class="sector-shell reveal" data-sector-panel>
+                <div class="sector-grid" role="group" aria-label="Industries">
+                    <button type="button" class="sector-chip" data-pick="automotive" data-line="A connected fault, followed to a closed job." data-note="Connected features are easy to announce and hard to service. Follow one failure from the vehicle, through the retailer, to a workshop job someone can close the same day." data-href="services.html#automotive" aria-pressed="true">Automotive</button>
+                    <button type="button" class="sector-chip" data-pick="banking" data-line="One customer journey. Shared facts." data-note="Channel, core, and risk often run as separate programs. The work that holds is one journey whose failure cost is known, with the same facts for the customer, the control function, and the product owner." data-href="services.html#banking" aria-pressed="false">Banking</button>
+                    <button type="button" class="sector-chip" data-pick="markets" data-line="Request, book, and risk on one path." data-note="The core is rarely one system. It is the path from a client request to booking, risk, and reporting. Count the manual bridges before selecting another platform." data-href="services.html#capital-markets" aria-pressed="false">Capital markets</button>
+                    <button type="button" class="sector-chip" data-pick="insurance" data-line="The claim queue, not another portal." data-note="A portal in front of the same handoffs keeps the queue. Start with the claim type that costs the most, and the evidence two teams currently do not trust." data-href="services.html#insurance" aria-pressed="false">Insurance</button>
+                    <button type="button" class="sector-chip" data-pick="retail" data-line="From intent to a completed order." data-note="The channel and the order system disagree more often than the campaign does. Follow one order from intent to cash, and fix where price, stock, or eligibility is still manual." data-href="services.html#retail" aria-pressed="false">Retail</button>
+                    <button type="button" class="sector-chip" data-pick="industrial" data-line="The decision that waits on the floor." data-note="Planning and the line often work from different pictures of demand and inventory. One product family, its suppliers, and the weekly decision that is currently late." data-href="services.html#industrial" aria-pressed="false">Industrial</button>
+                    <button type="button" class="sector-chip" data-pick="energy" data-line="Field work and the control room, same day." data-note="The field and the control room should not wait on a status meeting. One job type that can be seen, assigned, and closed with the same facts in both places." data-href="services.html#energy" aria-pressed="false">Energy</button>
+                    <button type="button" class="sector-chip" data-pick="health" data-line="The handoff that arrives late." data-note="Handoffs fail when the next team receives the case after the decision window. Map one handoff that is routinely late, and the record both sides will actually use." data-href="services.html#health" aria-pressed="false">Health</button>
+                    <button type="button" class="sector-chip" data-pick="public" data-line="Access that still works on a bad day." data-note="A service that only works for the expected case fails the people who need it most. Design the access path, the exception, and the evidence that remains when the usual route is down." data-href="services.html#public-service" aria-pressed="false">Public service</button>
                 </div>
-                <div class="stage-panel">
-                <div class="stage-canvas">
-                    <p class="scene-line" id="scene-line">A connected fault, followed to a closed job.</p>
-                    <div class="scene is-on" data-scene="automotive">
-                        <div class="d3 d3-auto" aria-hidden="true">
-                            <div class="floor"></div>
-                            <div class="auto">
-                                <b class="roof"></b>
-                                <b class="body"></b>
-                                <b class="whl a"></b>
-                                <b class="whl b"></b>
-                                <i class="ping"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="scene" data-scene="banking">
-                        <div class="d3 d3-bank" aria-hidden="true">
-                            <div class="floor"></div>
-                            <div class="bank">
-                                <b class="ped"></b>
-                                <b class="col"></b><b class="col"></b><b class="col"></b><b class="col"></b>
-                                <b class="base"></b>
-                                <i class="chip"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="scene" data-scene="markets">
-                        <div class="d3 d3-mkt" aria-hidden="true">
-                            <div class="floor"></div>
-                            <div class="bars">
-                                <i style="--h:64px"></i><i style="--h:96px"></i><i style="--h:52px"></i>
-                                <i style="--h:120px"></i><i style="--h:78px"></i><i style="--h:140px"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="scene" data-scene="insurance">
-                        <div class="d3 d3-ins" aria-hidden="true">
-                            <div class="shield3"><b></b><b></b><i></i></div>
-                        </div>
-                    </div>
-                    <div class="scene" data-scene="retail">
-                        <div class="d3 d3-box" aria-hidden="true">
-                            <div class="floor"></div>
-                            <div class="parcel"><b class="front"></b><b class="top"></b><b class="side"></b></div>
-                        </div>
-                    </div>
-                    <div class="scene" data-scene="industrial">
-                        <div class="d3 d3-gear" aria-hidden="true">
-                            <div class="mesh">
-                                <div class="cog"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
-                                <div class="cog sm"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="scene" data-scene="energy">
-                        <div class="d3 d3-orb" aria-hidden="true">
-                            <div class="core"></div>
-                            <div class="orbit o1"><i></i></div>
-                            <div class="orbit o2"><i></i></div>
-                            <div class="node"></div>
-                        </div>
-                    </div>
-                    <div class="scene" data-scene="health">
-                        <div class="d3 d3-pulse" aria-hidden="true">
-                            <div class="cross"><b></b><b></b></div>
-                            <i class="beat"></i><i class="beat b2"></i>
-                        </div>
-                    </div>
-                    <div class="scene" data-scene="public">
-                        <div class="d3 d3-net" aria-hidden="true">
-                            <div class="cluster">
-                                <b></b><b></b><b></b><b></b><b></b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="stage-copy">
-                    <p id="scene-note">Connected features are easy to announce and hard to service. Follow one failure from the vehicle, through the retailer, to a workshop job someone can close the same day.</p>
-                    <a id="scene-more" href="contact.html?industry=Automotive">Discuss Automotive workflow</a>
-                </div>
+                <div class="sector-stage" aria-live="polite">
+                    <p class="sector-stage-kicker" id="scene-line">A connected fault, followed to a closed job.</p>
+                    <p class="sector-stage-note" id="scene-note">Connected features are easy to announce and hard to service. Follow one failure from the vehicle, through the retailer, to a workshop job someone can close the same day.</p>
+                    <a class="sector-stage-link" id="scene-more" href="services.html#automotive">View Automotive on Industries</a>
                 </div>
             </div>
         </section>
