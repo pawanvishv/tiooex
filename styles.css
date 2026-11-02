@@ -1666,6 +1666,13 @@ body{background:var(--surface-2);color:var(--ink)}
     flex:none;
     display:block;
     object-fit:contain;
+    border-radius:8px;
+}
+[data-theme="light"] .logo-mark{
+    box-shadow:0 1px 3px rgba(16,36,58,.12), 0 0 0 1px rgba(8,126,139,.14);
+}
+[data-theme="dark"] .logo-mark{
+    box-shadow:0 0 0 1px rgba(58,171,158,.18);
 }
 .nav-search{
     display:inline-flex;align-items:center;gap:10px;

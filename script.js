@@ -31,6 +31,11 @@ const syncThemeUi = (theme) => {
     });
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = isDark ? "#0d1218" : "#f4f6f9";
+    const logoSrc = isDark ? "logo-mark-dark.svg" : "logo-mark-light.svg";
+    document.querySelectorAll(".logo-mark").forEach((img) => {
+        const current = img.getAttribute("src") || "";
+        if (!current.endsWith(logoSrc)) img.setAttribute("src", logoSrc);
+    });
 };
 
 const setSiteTheme = (theme) => {

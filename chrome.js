@@ -1,6 +1,8 @@
 (function () {
+    const theme = document.documentElement.getAttribute("data-theme") || "light";
+    const logoSrc = theme === "dark" ? "logo-mark-dark.svg" : "logo-mark-light.svg";
     const logoImg =
-        '<img class="logo-mark" src="logo-mark.svg" width="30" height="30" alt="" decoding="async">';
+        `<img class="logo-mark" src="${logoSrc}" width="30" height="30" alt="" decoding="async">`;
 
     const navHtml = `
 <nav class="site-nav site-nav--unified" id="site-nav">
